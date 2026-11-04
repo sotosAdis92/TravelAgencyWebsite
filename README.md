@@ -16,3 +16,12 @@ The idea behind the project was to create a fullstack web app for a travel agenc
 - Node.js v22.10 installed
 
 ---
+
+## Run the Backend
+
+> **Note:** This is a monorepo — the Maven `pom.xml` is inside `/server`, not at the root of the repository. If you open the root, it will not be detected as a Spring Boot project and thus will not have the button to run it.
+
+### Open the backend in IntelliJ
+
+1. `File` → `Open...` → select `server/pom.xml` → **"Open as Project"**
+2. `File` → `Project Structure` → `Project` → set **SDK** to JDK 25 (download via `SDKs` → `+` → `Download JDK` → `25` if needed) and **Language level** to 25.
