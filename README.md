@@ -25,3 +25,9 @@ The idea behind the project was to create a fullstack web app for a travel agenc
 
 1. `File` → `Open...` → select `server/pom.xml` → **"Open as Project"**
 2. `File` → `Project Structure` → `Project` → set **SDK** to JDK 25 (download via `SDKs` → `+` → `Download JDK` → `25` if needed) and **Language level** to 25.
+
+### Run via terminal
+
+```shell
+cd server
+mvnw.cmd spring-boot:run
