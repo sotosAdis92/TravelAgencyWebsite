@@ -2,10 +2,7 @@ package com.example.server.mapper.impl;
 
 import com.example.server.dto.request.TripRequest;
 import com.example.server.dto.response.TripResponse;
-import com.example.server.entity.Country;
-import com.example.server.entity.Departure;
-import com.example.server.entity.Itinerary;
-import com.example.server.entity.Trip;
+import com.example.server.entity.*;
 import com.example.server.mapper.TripMapper;
 
 import java.time.Instant;
@@ -52,6 +49,12 @@ public class TripMapperImpl implements TripMapper {
             departure.setRoomType(d.roomType());
             return departure;
         }).forEach(trip::addDeparture);
+
+        tripRequest.tripPictures().stream().map(tp -> {
+            TripPicture tripPicture = new TripPicture();
+            tripPicture.setImageUrl(tp.imageUrl());
+            return tripPicture;
+        }).forEach(trip::addTripPicture);
 
         return trip;
     }
