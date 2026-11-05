@@ -7,6 +7,7 @@ import java.time.LocalTime;
 
 public record DepartureResponse(
         Long id,
+        Long tripId,
         LocalDate date,
         String airport,
         LocalTime time,

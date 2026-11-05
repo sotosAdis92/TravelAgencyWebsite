@@ -4,7 +4,6 @@ import com.example.server.enums.PhysicalConditions;
 import com.example.server.enums.TripCategory;
 
 public record TripRequest(
-        Long countryId,
         String title,
         int duration,
         TripCategory tripCategory,
