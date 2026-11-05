@@ -1,5 +1,6 @@
 package com.example.server.entity;
 
+import com.example.server.enums.RoomType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,11 +32,9 @@ public class Departure {
     private LocalTime time;
 
     @Column(name = "room_type", nullable = false)
-    private Enumerated roomType;
+    @Enumerated(EnumType.STRING)
+    private RoomType roomType;
 
     @Column(name = "created_at", nullable = false)
     private Instant created_at;
-
-    @Column(name = "updated_at")
-    private Instant updated_at;
 }

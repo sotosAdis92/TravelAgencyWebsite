@@ -24,7 +24,4 @@ public class TripPictures {
 
     @Column(name = "created_at", nullable = false)
     private Instant created_at;
-
-    @Column(name = "updated_at")
-    private Instant updated_at;
 }
