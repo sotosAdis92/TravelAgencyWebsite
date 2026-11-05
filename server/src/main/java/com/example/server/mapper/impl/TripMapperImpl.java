@@ -1,0 +1,68 @@
+package com.example.server.mapper.impl;
+
+import com.example.server.dto.request.TripRequest;
+import com.example.server.dto.response.TripResponse;
+import com.example.server.entity.Country;
+import com.example.server.entity.Departure;
+import com.example.server.entity.Itinerary;
+import com.example.server.entity.Trip;
+import com.example.server.mapper.TripMapper;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+
+public class TripMapperImpl implements TripMapper {
+
+    @Override
+    public Trip toEntity(TripRequest tripRequest, Country countryById) {
+         Trip trip = new Trip(
+                null,
+                countryById,
+                tripRequest.title(),
+                tripRequest.duration(),
+                tripRequest.tripCategory(),
+                tripRequest.nights(),
+                tripRequest.physicalCondition(),
+                tripRequest.cost(),
+                tripRequest.description(),
+                tripRequest.imageMap(),
+                tripRequest.imageUrl(),
+                tripRequest.capacity(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                Instant.now(),
+                Instant.now()
+        );
+        tripRequest.itineraries().stream().map(i -> {
+            Itinerary itinerary = new Itinerary();
+            itinerary.setDayNumber(i.dayNumber());
+            itinerary.setLocation(i.location());
+            itinerary.setDescription(i.description());
+            itinerary.setImageUrl(i.imageUrl());
+            return itinerary;
+        }).forEach(trip::addItinerary);
+
+        tripRequest.departures().stream().map(i -> {
+            Departure departure = new Departure();
+            itinerary.setDayNumber(i.dayNumber());
+            itinerary.setLocation(i.location());
+            itinerary.setDescription(i.description());
+            itinerary.setImageUrl(i.imageUrl());
+            return itinerary;
+        }).forEach(trip::addItinerary);
+
+        return trip;
+    }
+
+    @Override
+    public TripResponse toDto(Trip trip) {
+        return null;
+    }
+
+    @Override
+    public List<TripResponse> toDto(List<Trip> tripList) {
+        return List.of();
+    }
+}

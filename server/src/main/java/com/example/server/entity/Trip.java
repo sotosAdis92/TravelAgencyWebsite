@@ -69,4 +69,33 @@ public class Trip {
 
     @Column(name = "updated_at")
     private Instant updated_at;
+
+    public Trip(Long id, Country country, String title, int duration, TripCategory category, int nights,
+                PhysicalConditions physicalCondition, int cost, String description, String imageMap,
+                String imageUrl, int capacity, List<Itinerary> itineraries, List<Departure> departures,
+                List<TripPicture> tripPictures, Instant created_at, Instant updated_at)
+    {
+        this.id = id;
+        this.country = country;
+        this.title = title;
+        this.duration = duration;
+        this.category = category;
+        this.nights = nights;
+        this.physicalCondition = physicalCondition;
+        this.cost = cost;
+        this.description = description;
+        this.imageMap = imageMap;
+        this.imageUrl = imageUrl;
+        this.capacity = capacity;
+        this.itineraries = itineraries;
+        this.departures = departures;
+        this.tripPictures = tripPictures;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
+
+    public void addItinerary(Itinerary itinerary){
+        itineraries.add(itinerary);
+        itinerary.setTrip(this);
+    }
 }
