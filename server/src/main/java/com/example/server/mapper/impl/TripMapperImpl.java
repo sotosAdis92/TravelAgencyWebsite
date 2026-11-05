@@ -44,14 +44,14 @@ public class TripMapperImpl implements TripMapper {
             return itinerary;
         }).forEach(trip::addItinerary);
 
-        tripRequest.departures().stream().map(i -> {
+        tripRequest.departures().stream().map(d -> {
             Departure departure = new Departure();
-            itinerary.setDayNumber(i.dayNumber());
-            itinerary.setLocation(i.location());
-            itinerary.setDescription(i.description());
-            itinerary.setImageUrl(i.imageUrl());
-            return itinerary;
-        }).forEach(trip::addItinerary);
+            departure.setDate(d.date());
+            departure.setAirport(d.airport());
+            departure.setTime(d.time());
+            departure.setRoomType(d.roomType());
+            return departure;
+        }).forEach(trip::addDeparture);
 
         return trip;
     }

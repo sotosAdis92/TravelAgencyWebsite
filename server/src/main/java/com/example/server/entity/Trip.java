@@ -98,4 +98,14 @@ public class Trip {
         itineraries.add(itinerary);
         itinerary.setTrip(this);
     }
+
+    public void addDeparture(Departure departure){
+        departures.add(departure);
+        departure.setTrip(this);
+    }
+
+    public void addTripPicture(TripPicture tripPicture){
+        tripPictures.add(tripPicture);
+        tripPicture.setTrip(this);
+    }
 }
