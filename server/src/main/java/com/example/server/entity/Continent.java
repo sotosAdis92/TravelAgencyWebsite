@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Formula;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class Continent {
 
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Country> countries = new ArrayList<>();
+
+    @Formula("select count(*) from countries c where c.continent_id = id")
+    private long countryCount;
 
     @Column(name = "created_at")
     private Instant created_at;
