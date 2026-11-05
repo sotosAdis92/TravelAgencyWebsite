@@ -28,7 +28,10 @@ public class Itinerary {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "created_at")
+    @Column(name = "picture")
+    private String imageUrl;
+
+    @Column(name = "created_at", nullable = false)
     private Instant created_at;
 
     @Column(name = "updated_at")
