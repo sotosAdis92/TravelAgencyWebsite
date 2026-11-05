@@ -30,22 +30,13 @@ public class ContinentMapperImpl implements ContinentMapper {
 
     @Override
     public ContinentResponse toDto(Continent continent) {
-        List<CountryResponse> countries = continent.getCountries().stream().map(country -> new CountryResponse(
-                country.getId(),
-                country.getName(),
-                country.getPopulation(),
-                country.getImageUrl(),
-                country.getMapUrl()
-        )).toList();
         return new ContinentResponse(
                 continent.getId(),
                 continent.getName(),
                 continent.getPopulation(),
                 continent.getLandArea(),
                 continent.getImageUrl(),
-                continent.getMapUrl(),
-                countries,
-                continent.getCountryCount()
+                continent.getMapUrl()
         );
     }
 
