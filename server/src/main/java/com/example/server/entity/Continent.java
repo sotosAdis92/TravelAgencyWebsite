@@ -10,6 +10,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Getter
 @Setter
 @Table(name = "continents")
@@ -46,4 +47,20 @@ public class Continent {
 
     @Column(name = "updated_at")
     private Instant updated_at;
+
+    public Continent(Long id, ContinentNames name, int population, int landArea, String imageUrl,
+                     String mapUrl, List<Country> countries,
+                     long countryCount, Instant created_at, Instant updated_at)
+    {
+        this.id = id;
+        this.name = name;
+        this.population = population;
+        this.landArea = landArea;
+        this.imageUrl = imageUrl;
+        this.mapUrl = mapUrl;
+        this.countries = countries;
+        this.countryCount = countryCount;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
 }
