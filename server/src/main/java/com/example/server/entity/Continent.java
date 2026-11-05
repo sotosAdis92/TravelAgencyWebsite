@@ -19,7 +19,7 @@ public class Continent {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private String name;
+    private Enumerated name;
 
     @Column(name = "population", nullable = false)
     private int population;
