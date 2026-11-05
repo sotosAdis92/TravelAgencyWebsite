@@ -9,7 +9,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @Table
-public class TripPictures {
+public class TripPicture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false, updatable = false)

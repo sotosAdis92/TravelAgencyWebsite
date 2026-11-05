@@ -62,7 +62,7 @@ public class Trip {
     private List<Departure> departures = new ArrayList<>();
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TripPictures> tripPictures = new ArrayList<>();
+    private List<TripPicture> tripPictures = new ArrayList<>();
 
     @Column(name = "created_at")
     private Instant created_at;
