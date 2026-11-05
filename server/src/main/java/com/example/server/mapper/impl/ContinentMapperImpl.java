@@ -13,7 +13,6 @@ import java.util.List;
 public class ContinentMapperImpl implements ContinentMapper {
     @Override
     public Continent toEntity(ContinentRequest continentRequest) {
-
         Continent continent = new Continent(
                 null,
                 continentRequest.name(),
