@@ -1,5 +1,7 @@
 package com.example.server.entity;
 
+import com.example.server.enums.PhysicalConditions;
+import com.example.server.enums.TripCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,13 +30,15 @@ public class Trip {
     private int duration;
 
     @Column(name = "category", nullable = false)
-    private Enumerated category;
+    @Enumerated(EnumType.STRING)
+    private TripCategory category;
 
     @Column(name = "nights",nullable = false)
     private int nights;
 
     @Column(name = "physical_condition",nullable = false)
-    private Enumerated physicalCondition;
+    @Enumerated(EnumType.STRING)
+    private PhysicalConditions physicalCondition;
 
     @Column(name = "cost",nullable = false)
     private int cost;

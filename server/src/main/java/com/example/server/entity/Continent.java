@@ -1,5 +1,6 @@
 package com.example.server.entity;
 
+import com.example.server.enums.ContinentNames;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,8 @@ public class Continent {
     private Long id;
 
     @Column(name = "name", nullable = false)
-    private Enumerated name;
+    @Enumerated(EnumType.STRING)
+    private ContinentNames name;
 
     @Column(name = "population", nullable = false)
     private int population;
