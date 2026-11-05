@@ -15,6 +15,10 @@ public class Trip {
     @Column(name = "id",nullable = false,updatable = false)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+
     @Column(name = "title",nullable = false)
     private String title;
 
