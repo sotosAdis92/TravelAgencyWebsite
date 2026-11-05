@@ -33,6 +33,9 @@ public class Continent {
     @Column(name = "map",nullable = false)
     private String mapUrl;
 
+    @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Country> countries = new ArrayList<>();
+
     @Column(name = "created_at")
     private Instant created_at;
 

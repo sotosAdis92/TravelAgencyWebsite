@@ -8,4 +8,8 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",nullable = false,updatable = false)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "continent_id")
+    private Continent continent;
 }
