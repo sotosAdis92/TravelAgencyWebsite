@@ -20,8 +20,6 @@ public class ContinentMapperImpl implements ContinentMapper {
                 continentRequest.landArea(),
                 continentRequest.imageUrl(),
                 continentRequest.mapUrl(),
-                new ArrayList<>(),
-                0,
                 Instant.now(),
                 Instant.now()
         );
