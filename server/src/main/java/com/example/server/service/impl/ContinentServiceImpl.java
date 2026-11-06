@@ -8,6 +8,8 @@ import com.example.server.repository.ContinentRepository;
 import com.example.server.service.ContinentService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ContinentServiceImpl implements ContinentService {
     private final ContinentRepository continentRepository;
@@ -16,6 +18,12 @@ public class ContinentServiceImpl implements ContinentService {
     public ContinentServiceImpl(ContinentRepository continentRepository, ContinentMapper continentMapper) {
         this.continentRepository = continentRepository;
         this.continentMapper = continentMapper;
+    }
+
+    @Override
+    public List<ContinentResponse> getAllContinents() {
+        List<ContinentResponse> continents = continentMapper.toDto(continentRepository.findAll());
+        return continents;
     }
 
     @Override
