@@ -25,7 +25,7 @@ public class ContinentController {
     }
 
     @PostMapping
-    public ResponseEntity<ContinentResponse> createContinent(ContinentRequest continent){
+    public ResponseEntity<ContinentResponse> createContinent(@RequestBody ContinentRequest continent){
         ContinentResponse continentResponse = continentService.createContinent(continent);
         return new ResponseEntity<>(continentResponse,HttpStatus.CREATED);
     }

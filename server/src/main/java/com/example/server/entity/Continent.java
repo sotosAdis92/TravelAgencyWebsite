@@ -34,10 +34,10 @@ public class Continent {
     @Column(name = "land_area", nullable = false)
     private int landArea;
 
-    @Column(name = "picture", nullable = false)
+    @Column(name = "picture")
     private String imageUrl;
 
-    @Column(name = "map",nullable = false)
+    @Column(name = "map")
     private String mapUrl;
 
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
