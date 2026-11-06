@@ -20,8 +20,8 @@ public class ContinentServiceImpl implements ContinentService {
 
     @Override
     public ContinentResponse createContinent(ContinentRequest continentRequest) {
-
-       return null;
+       Continent continent = continentMapper.toEntity(continentRequest);
+       return continentMapper.toDto(continentRepository.save(continent));
     }
 
     @Override

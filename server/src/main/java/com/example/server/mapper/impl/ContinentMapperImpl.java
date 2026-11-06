@@ -5,11 +5,13 @@ import com.example.server.dto.response.ContinentResponse;
 import com.example.server.dto.response.CountryResponse;
 import com.example.server.entity.Continent;
 import com.example.server.mapper.ContinentMapper;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class ContinentMapperImpl implements ContinentMapper {
     @Override
     public Continent toEntity(ContinentRequest continentRequest) {
