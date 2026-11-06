@@ -26,6 +26,7 @@ public class ContinentServiceImpl implements ContinentService {
 
     @Override
     public void deleteContinent(Long id) {
-
+        Continent continent = continentRepository.findById(id).orElseThrow(() -> new RuntimeException("No Continent Found with this id: " + id));
+        continentRepository.delete(continent);
     }
 }
