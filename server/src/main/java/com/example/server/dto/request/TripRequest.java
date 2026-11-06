@@ -5,8 +5,6 @@ import com.example.server.enums.TripCategory;
 
 import java.util.List;
 
-import static jdk.internal.org.jline.reader.impl.LineReaderImpl.CompletionType.List;
-
 public record TripRequest(
         String title,
         int duration,

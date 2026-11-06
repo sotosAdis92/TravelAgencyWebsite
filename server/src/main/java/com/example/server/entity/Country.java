@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Setter
 @Getter
-@Table(name = "countries")
+@Table(name = "country")
 @NoArgsConstructor
 public class Country {
     @Id
@@ -37,7 +37,7 @@ public class Country {
     @Column(name = "country_map", nullable = false, updatable = true)
     private String mapUrl;
 
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Trip> trips = new ArrayList<>();
 
     @Column(name = "created_at")

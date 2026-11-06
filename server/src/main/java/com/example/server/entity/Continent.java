@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "continents")
+@Table(name = "continent")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Continent {
@@ -42,9 +42,6 @@ public class Continent {
 
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Country> countries = new ArrayList<>();
-
-    @Formula("(select count(*) from countries c where c.continent_id = continent.id)")
-    private long countryCount;
 
     @Column(name = "created_at")
     private Instant created_at;
