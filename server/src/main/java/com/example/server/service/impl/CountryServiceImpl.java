@@ -10,6 +10,8 @@ import com.example.server.repository.CountryRepository;
 import com.example.server.service.CountryService;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+
 @Service
 public class CountryServiceImpl implements CountryService {
     private final ContinentRepository continentRepository;
@@ -31,11 +33,20 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public CountryResponse updateCountry(CountryRequest countryRequest, Long id) {
-        return null;
+        Country country = countryRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find country with an ID of: " + id));
+        Continent continent = continentRepository.findById(countryRequest.continentId()).orElseThrow(() -> new RuntimeException("Could not find continent with id of:" + id));
+        country.setContinent(continent);
+        country.setName(countryRequest.name());
+        country.setPopulation(countryRequest.population());
+        country.setImageUrl(countryRequest.imageUrl());
+        country.setMapUrl(countryRequest.imageUrl());
+        country.setUpdated_at(Instant.now());
+        return countryMapper.toDto(country);
     }
 
     @Override
     public void deleteCountry(Long id) {
-
+        Country country = countryRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find country with that id:" + id));
+        countryRepository.delete(country);
     }
 }
