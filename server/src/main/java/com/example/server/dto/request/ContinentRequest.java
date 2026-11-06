@@ -10,7 +10,6 @@ public record ContinentRequest(
         int population,
         int landArea,
         String imageUrl,
-        String mapUrl,
-        List<CountryRequest> countries
+        String mapUrl
 ) {
 }
