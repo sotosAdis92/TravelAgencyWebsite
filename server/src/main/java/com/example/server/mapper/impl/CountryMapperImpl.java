@@ -2,6 +2,7 @@ package com.example.server.mapper.impl;
 
 import com.example.server.dto.request.CountryRequest;
 import com.example.server.dto.response.CountryResponse;
+import com.example.server.dto.response.TripResponse;
 import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
 import com.example.server.entity.Trip;
@@ -32,12 +33,19 @@ public class CountryMapperImpl implements CountryMapper {
 
     @Override
     public CountryResponse toDto(Country country) {
-        return null;
+        CountryResponse countryResponse = new CountryResponse(
+                country.getId(),
+                country.getName(),
+                country.getPopulation(),
+                country.getImageUrl(),
+                country.getMapUrl()
+        );
+        return countryResponse;
     }
 
     @Override
     public List<CountryResponse> toDto(List<Country> countries) {
-        return List.of();
+        return countries.stream().map(this::toDto).toList();
     }
 
 }
