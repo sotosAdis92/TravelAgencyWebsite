@@ -1,8 +1,5 @@
 package com.example.server.dto.response;
 
-import com.example.server.entity.Departure;
-import com.example.server.entity.Itinerary;
-import com.example.server.entity.TripPicture;
 import com.example.server.enums.PhysicalConditions;
 import com.example.server.enums.TripCategory;
 
@@ -21,8 +18,8 @@ public record TripResponse(
         String imageMap,
         String imageUrl,
         int capacity,
-        List<Itinerary> itineraries,
-        List<Departure> departures,
-        List<TripPicture> tripPictures
+        List<ItineraryResponse> itineraries,
+        List<DepartureResponse> departures,
+        List<TripPictureResponse> tripPictures
 ) {
 }
