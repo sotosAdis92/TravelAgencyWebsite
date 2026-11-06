@@ -114,6 +114,6 @@ public class TripMapperImpl implements TripMapper {
 
     @Override
     public List<TripResponse> toDto(List<Trip> tripList) {
-        return List.of();
+        return tripList.stream().map(this::toDto).toList();
     }
 }
