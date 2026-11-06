@@ -9,6 +9,7 @@ public record DepartureRequest(
         LocalDate date,
         String airport,
         LocalTime time,
-        RoomType roomType
+        RoomType roomType,
+        Long tripId
 ) {
 }

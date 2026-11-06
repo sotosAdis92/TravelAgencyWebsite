@@ -4,6 +4,7 @@ public record ItineraryRequest(
         int dayNumber,
         String location,
         String description,
-        String imageUrl
+        String imageUrl,
+        Long tripId
 ) {
 }
