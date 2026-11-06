@@ -18,18 +18,6 @@ public class ContinentServiceImpl implements ContinentService {
 
     @Override
     public Continent createContinent(ContinentRequest continentRequest) {
-        Instant now = Instant.now();
-        Continent continent = new Continent(
-               null,
-                continentRequest.name(),
-                continentRequest.population(),
-                continentRequest.landArea(),
-                continentRequest.imageUrl(),
-                continentRequest.mapUrl(),
-                continentRequest.countries(),
-                now,
-                now
-        );
-        return continentRepository.save(continent);
+       return null;
     }
 }
