@@ -2,7 +2,9 @@ package com.example.server.entity;
 
 import com.example.server.enums.ContinentNames;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Formula;
 
@@ -10,10 +12,12 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 @Getter
 @Setter
 @Table(name = "continents")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Continent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +43,7 @@ public class Continent {
     @OneToMany(mappedBy = "continent", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Country> countries = new ArrayList<>();
 
-    @Formula("select count(*) from countries c where c.continent_id = id")
+    @Formula("(select count(*) from countries c where c.continent_id = continent.id)")
     private long countryCount;
 
     @Column(name = "created_at")

@@ -1,14 +1,19 @@
 package com.example.server.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
 
+@Entity
 @Getter
 @Setter
-@Table
+@Table(name = "trip_picture")
+@NoArgsConstructor
+@AllArgsConstructor
 public class TripPicture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -6,7 +6,8 @@ import lombok.Setter;
 
 import java.time.Instant;
 
-@Table
+@Entity
+@Table(name = "itinerary")
 @Setter
 @Getter
 public class Itinerary {

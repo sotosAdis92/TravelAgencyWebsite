@@ -2,16 +2,21 @@ package com.example.server.entity;
 
 import com.example.server.enums.RoomType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Entity
 @Setter
 @Getter
-@Table
+@Table(name = "departure")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Departure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,15 +4,18 @@ import com.example.server.enums.PhysicalConditions;
 import com.example.server.enums.TripCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 @Getter
 @Setter
 @Table(name = "trips")
+@NoArgsConstructor
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
