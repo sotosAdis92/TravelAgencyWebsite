@@ -11,6 +11,7 @@ import com.example.server.service.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -22,6 +23,12 @@ public class CountryServiceImpl implements CountryService {
         this.continentRepository = continentRepository;
         this.countryRepository = countryRepository;
         this.countryMapper = countryMapper;
+    }
+
+    @Override
+    public List<CountryResponse> getAllCounties() {
+        List<CountryResponse> countries = countryMapper.toDto(countryRepository.findAll());
+        return countries;
     }
 
     @Override
