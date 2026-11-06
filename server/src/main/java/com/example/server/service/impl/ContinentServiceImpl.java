@@ -6,8 +6,6 @@ import com.example.server.repository.ContinentRepository;
 import com.example.server.service.ContinentService;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
-
 @Service
 public class ContinentServiceImpl implements ContinentService {
     private final ContinentRepository continentRepository;
@@ -24,5 +22,10 @@ public class ContinentServiceImpl implements ContinentService {
     @Override
     public Continent updateContinent(ContinentRequest continentRequest) {
         return null;
+    }
+
+    @Override
+    public void deleteContinent(Long id) {
+
     }
 }

@@ -6,4 +6,5 @@ import com.example.server.entity.Continent;
 public interface ContinentService {
     Continent createContinent(ContinentRequest continentRequest);
     Continent updateContinent(ContinentRequest continentRequest);
+    void deleteContinent(Long id);
 }
