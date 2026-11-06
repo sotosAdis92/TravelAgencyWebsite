@@ -6,7 +6,7 @@ import com.example.server.dto.response.CountryResponse;
 import java.util.List;
 
 public interface CountryService {
-    List<CountryResponse> getAllCounties();
+    List<CountryResponse> getAllCounties(Long continentId);
     CountryResponse createCountry(CountryRequest countryRequest);
     CountryResponse updateCountry(CountryRequest countryRequest, Long id);
     void deleteCountry(Long id);

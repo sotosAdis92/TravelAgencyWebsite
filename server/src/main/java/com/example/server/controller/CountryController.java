@@ -5,6 +5,7 @@ import com.example.server.service.CountryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +20,9 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping
-    public ResponseEntity<List<CountryResponse>> getAllCountries(){
-        List<CountryResponse> counties = countryService.getAllCounties();
-        return new ResponseEntity<>(counties, HttpStatus.OK);
+    @GetMapping("/{continentId}")
+    public ResponseEntity<List<CountryResponse>> getAllCountries(@PathVariable("continentId") Long continentId){
+        List<CountryResponse> countries = countryService.getAllCounties(continentId);
+        return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 }
