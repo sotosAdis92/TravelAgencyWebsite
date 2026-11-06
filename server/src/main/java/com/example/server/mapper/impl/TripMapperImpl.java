@@ -7,12 +7,13 @@ import com.example.server.dto.response.TripPictureResponse;
 import com.example.server.dto.response.TripResponse;
 import com.example.server.entity.*;
 import com.example.server.mapper.TripMapper;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Component
 public class TripMapperImpl implements TripMapper {
 
     @Override

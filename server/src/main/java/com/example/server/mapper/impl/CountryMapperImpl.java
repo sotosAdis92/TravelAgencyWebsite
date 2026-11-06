@@ -6,11 +6,13 @@ import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
 import com.example.server.entity.Trip;
 import com.example.server.mapper.CountryMapper;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class CountryMapperImpl implements CountryMapper {
     @Override
     public Country toEntity(CountryRequest countryRequest, Continent continentById) {
