@@ -29,7 +29,7 @@ public class Continent {
     private ContinentNames name;
 
     @Column(name = "population", nullable = false)
-    private int population;
+    private Long population;
 
     @Column(name = "land_area", nullable = false)
     private int landArea;
@@ -49,7 +49,7 @@ public class Continent {
     @Column(name = "updated_at")
     private Instant updated_at;
 
-    public Continent(Long id, ContinentNames name, int population, int landArea, String imageUrl, String mapUrl, Instant created_at, Instant updated_at) {
+    public Continent(Long id, ContinentNames name, Long population, int landArea, String imageUrl, String mapUrl, Instant created_at, Instant updated_at) {
         this.id = id;
         this.name = name;
         this.population = population;
