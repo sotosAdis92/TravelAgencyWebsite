@@ -20,8 +20,8 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/{continentId}")
-    public ResponseEntity<List<CountryResponse>> getAllCountries(@PathVariable("continentId") Long continentId){
+    @GetMapping("/")
+    public ResponseEntity<List<CountryResponse>> getAllCountries(@PathVariable("") Long continentId){
         List<CountryResponse> countries = countryService.getAllCounties(continentId);
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
