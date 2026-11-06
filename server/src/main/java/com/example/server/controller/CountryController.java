@@ -1,13 +1,11 @@
 package com.example.server.controller;
 
+import com.example.server.dto.request.CountryRequest;
 import com.example.server.dto.response.CountryResponse;
 import com.example.server.service.CountryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +18,27 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @GetMapping("/")
-    public ResponseEntity<List<CountryResponse>> getAllCountries(@PathVariable("") Long continentId){
-        List<CountryResponse> countries = countryService.getAllCounties(continentId);
+    @GetMapping("/continent/{continentId}")
+    public ResponseEntity<List<CountryResponse>> getAllCountriesByContinentId(@PathVariable("continentId") Long continentId){
+        List<CountryResponse> countries = countryService.getAllCountriesByContinent(continentId);
         return new ResponseEntity<>(countries, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<CountryResponse> createCountry(@RequestBody CountryRequest countryRequest){
+        CountryResponse country = countryService.createCountry(countryRequest);
+        return new ResponseEntity<>(country,HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CountryResponse> updateCountry(@RequestBody CountryRequest countryRequest, @PathVariable("id") Long id){
+        CountryResponse country = countryService.updateCountry(countryRequest, id);
+        return new ResponseEntity<>(country,HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCountry(@PathVariable("id") Long id){
+        countryService.deleteCountry(id);
+        return new ResponseEntity<>("Deleted the country with an id of:" + id, HttpStatus.OK);
     }
 }

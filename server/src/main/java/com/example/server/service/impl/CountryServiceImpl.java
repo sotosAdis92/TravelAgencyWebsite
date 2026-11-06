@@ -26,7 +26,7 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<CountryResponse> getAllCounties(Long continentId) {
+    public List<CountryResponse> getAllCountriesByContinent(Long continentId) {
         List<CountryResponse> countries = countryMapper.toDto(countryRepository.findCountriesByContinent_Id(continentId));
         return countries;
     }
