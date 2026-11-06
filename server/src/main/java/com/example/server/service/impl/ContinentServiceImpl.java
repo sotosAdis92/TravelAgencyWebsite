@@ -20,4 +20,9 @@ public class ContinentServiceImpl implements ContinentService {
     public Continent createContinent(ContinentRequest continentRequest) {
        return null;
     }
+
+    @Override
+    public Continent updateContinent(ContinentRequest continentRequest) {
+        return null;
+    }
 }
