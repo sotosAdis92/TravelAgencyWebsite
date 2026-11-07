@@ -32,6 +32,6 @@ The idea behind the project was to create a fullstack web app for a travel agenc
 cd server
 mvnw.cmd spring-boot:run
 ```
-#Feautures
+Feautures
 ---
 - Swagger UI API Documentation
