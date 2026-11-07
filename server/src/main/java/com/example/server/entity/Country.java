@@ -29,7 +29,7 @@ public class Country {
     private String name;
 
     @Column(name = "population", nullable = false, updatable = true)
-    private int population;
+    private Long population;
 
     @Column(name = "country_picture", nullable = false, updatable = true)
     private String imageUrl;
@@ -46,7 +46,7 @@ public class Country {
     @Column(name = "updated_at")
     private Instant updated_at;
 
-    public Country(Long id, Continent continent, String name, int population, String imageUrl, String mapUrl, List<Trip> trips, Instant created_at, Instant updated_at) {
+    public Country(Long id, Continent continent, String name, Long population, String imageUrl, String mapUrl, List<Trip> trips, Instant created_at, Instant updated_at) {
         this.id = id;
         this.continent = continent;
         this.name = name;

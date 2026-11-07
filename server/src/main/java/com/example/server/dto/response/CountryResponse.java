@@ -3,7 +3,7 @@ package com.example.server.dto.response;
 public record CountryResponse(
         Long id,
         String name,
-        int population,
+        Long population,
         String imageUrl,
         String mapUrl
 ) {
