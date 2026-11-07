@@ -46,8 +46,16 @@ public class TripServiceImpl implements TripService {
         Trip trip = tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find trip with an ID of: " + id));
         Country country = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new RuntimeException("Could not find country with id of:" + id));
         trip.setCountry(country);
-
-
+        trip.setTitle(tripRequest.title());
+        trip.setDuration(tripRequest.duration());
+        trip.setCategory(tripRequest.tripCategory());
+        trip.setNights(tripRequest.nights());
+        trip.setPhysicalCondition(tripRequest.physicalCondition());
+        trip.setCost(tripRequest.cost());
+        trip.setDescription(tripRequest.description());
+        trip.setImageMap(tripRequest.imageMap());
+        trip.setImageUrl(tripRequest.imageUrl());
+        trip.setCapacity(tripRequest.capacity());
         return tripMapper.toDto(trip);
     }
 
