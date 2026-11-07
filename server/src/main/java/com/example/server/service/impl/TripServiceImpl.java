@@ -57,7 +57,9 @@ public class TripServiceImpl implements TripService {
         trip.setImageMap(tripRequest.imageMap());
         trip.setImageUrl(tripRequest.imageUrl());
         trip.setCapacity(tripRequest.capacity());
-
+        trip.setItineraries(tripFromDto.getItineraries());
+        trip.setDepartures(tripFromDto.getDepartures());
+        trip.setTripPictures(tripFromDto.getTripPictures());
         return tripMapper.toDto(trip);
     }
 
