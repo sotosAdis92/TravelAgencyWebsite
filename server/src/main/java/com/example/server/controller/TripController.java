@@ -1,8 +1,6 @@
 package com.example.server.controller;
 
-import com.example.server.dto.request.CountryRequest;
 import com.example.server.dto.request.TripRequest;
-import com.example.server.dto.response.CountryResponse;
 import com.example.server.dto.response.TripResponse;
 import com.example.server.service.TripService;
 import org.springframework.http.HttpStatus;
