@@ -48,6 +48,7 @@ public class CountryServiceImpl implements CountryService {
         country.setImageUrl(countryRequest.imageUrl());
         country.setMapUrl(countryRequest.imageUrl());
         country.setUpdated_at(Instant.now());
+        countryRepository.save(country);
         return countryMapper.toDto(country);
     }
 
