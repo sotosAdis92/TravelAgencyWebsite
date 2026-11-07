@@ -1,13 +1,13 @@
 package com.example.server.controller;
 
+import com.example.server.dto.request.CountryRequest;
+import com.example.server.dto.request.TripRequest;
+import com.example.server.dto.response.CountryResponse;
 import com.example.server.dto.response.TripResponse;
 import com.example.server.service.TripService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +24,23 @@ public class TripController {
     public ResponseEntity<List<TripResponse>> getTripsByCountry(@PathVariable("countryId") Long countryId){
         List<TripResponse> trips = tripService.getTripsByCountry(countryId);
         return new ResponseEntity<>(trips, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<TripResponse> createTrip(@RequestBody TripRequest tripRequest){
+        TripResponse trip = tripService.createTrip(tripRequest);
+        return new ResponseEntity<>(trip,HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<TripResponse> updateTrip(@RequestBody TripRequest tripRequest, @PathVariable("id") Long id){
+        TripResponse trip = tripService.updateTrip(tripRequest, id);
+        return new ResponseEntity<>(trip,HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCountry(@PathVariable("id") Long id){
+        tripService.deleteTrip(id);
+        return new ResponseEntity<>("Deleted the country with an id of:" + id, HttpStatus.OK);
     }
 }
