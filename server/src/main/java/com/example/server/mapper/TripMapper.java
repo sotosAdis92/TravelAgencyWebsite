@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface TripMapper {
     Trip toEntity(TripRequest tripRequest, Country countryById);
+    Trip toEntity(TripRequest tripRequest);
     TripResponse toDto(Trip trip);
     List<TripResponse> toDto(List<Trip> tripList);
 }

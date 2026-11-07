@@ -45,6 +45,7 @@ public class TripServiceImpl implements TripService {
     public TripResponse updateTrip(TripRequest tripRequest,Long id) {
         Trip trip = tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find trip with an ID of: " + id));
         Country country = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new RuntimeException("Could not find country with id of:" + id));
+        Trip tripFromDto = tripMapper.toEntity(tripRequest);
         trip.setCountry(country);
         trip.setTitle(tripRequest.title());
         trip.setDuration(tripRequest.duration());
@@ -56,6 +57,7 @@ public class TripServiceImpl implements TripService {
         trip.setImageMap(tripRequest.imageMap());
         trip.setImageUrl(tripRequest.imageUrl());
         trip.setCapacity(tripRequest.capacity());
+
         return tripMapper.toDto(trip);
     }
 
