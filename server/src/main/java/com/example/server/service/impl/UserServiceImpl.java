@@ -6,10 +6,13 @@ import com.example.server.entity.User;
 import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -17,10 +20,16 @@ import java.util.List;
 public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User register(RegisterRequest registerRequest) {
-        return null;
+        if(userRepository.existsByUsername(registerRequest.username())){
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+        User user = User.builder().username(registerRequest.username()).password(passwordEncoder.encode(registerRequest.password())).userRole("USER_ROLE").build();
+        return userRepository.save(user);
     }
 
     @Override
