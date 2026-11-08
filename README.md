@@ -35,3 +35,4 @@ mvnw.cmd spring-boot:run
 Feautures
 ---
 - Swagger UI API Documentation
+- Spring Security
