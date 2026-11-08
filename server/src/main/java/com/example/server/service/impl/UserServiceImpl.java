@@ -2,8 +2,6 @@ package com.example.server.service.impl;
 
 import com.example.server.dto.request.LoginRequest;
 import com.example.server.dto.request.RegisterRequest;
-import com.example.server.dto.response.LoginResponse;
-import com.example.server.dto.response.RegisterResponse;
 import com.example.server.entity.User;
 import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
@@ -21,12 +19,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public RegisterResponse register(RegisterRequest registerRequest) {
+    public User register(RegisterRequest registerRequest) {
         return null;
     }
 
     @Override
-    public LoginResponse login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest) {
         return null;
     }
 
