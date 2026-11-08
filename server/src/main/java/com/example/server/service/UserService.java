@@ -5,4 +5,5 @@ import com.example.server.entity.User;
 
 public interface UserService {
     User register(RegisterRequest registerRequest);
+
 }

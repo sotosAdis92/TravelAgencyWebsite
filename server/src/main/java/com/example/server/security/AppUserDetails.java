@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/*
 @Service
 @RequiredArgsConstructor
 public class AppUserDetails implements UserDetailsService {
@@ -21,3 +22,5 @@ public class AppUserDetails implements UserDetailsService {
         return org.springframework.security.core.userdetails.User.withUsername(user.getUsername()).password(user.getPassword()).authorities(List.of(new SimpleGrantedAuthority(user.getUserRole()))).build();
     }
 }
+
+ */
