@@ -6,6 +6,8 @@ import com.example.server.entity.User;
 import com.example.server.mapper.UsersMapper;
 import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -36,7 +38,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User login(LoginRequest loginRequest) {
+    public User login(LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         return null;
     }
 
