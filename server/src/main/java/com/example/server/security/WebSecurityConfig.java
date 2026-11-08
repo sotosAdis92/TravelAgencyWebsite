@@ -1,11 +1,13 @@
 package com.example.server.security;
 
+import com.example.server.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -22,5 +24,10 @@ public class WebSecurityConfig {
                 )
                 .httpBasic(Customizer.withDefaults());
         return httpSecurity.build();
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService(){
+        return new UserServiceImpl();
     }
 }
