@@ -26,8 +26,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private UserRole userRole;
+    private String userRole;
 
     @Column(name = "created_at")
     private Instant createdAt;
