@@ -27,7 +27,7 @@ public class TripController {
     @PostMapping
     public ResponseEntity<TripResponse> createTrip(@RequestBody TripRequest tripRequest){
         TripResponse trip = tripService.createTrip(tripRequest);
-        return new ResponseEntity<>(trip,HttpStatus.OK);
+        return new ResponseEntity<>(trip,HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
@@ -39,6 +39,6 @@ public class TripController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteCountry(@PathVariable("id") Long id){
         tripService.deleteTrip(id);
-        return new ResponseEntity<>("Deleted the country with an id of:" + id, HttpStatus.OK);
+        return new ResponseEntity<>("Deleted the country with an id of:" + id, HttpStatus.NO_CONTENT);
     }
 }
