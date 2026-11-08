@@ -90,6 +90,7 @@ public class TripMapperImpl implements TripMapper {
             itinerary.setLocation(i.location());
             itinerary.setDescription(i.description());
             itinerary.setImageUrl(i.imageUrl());
+            itinerary.setCreated_at(Instant.now());
             return itinerary;
         }).forEach(trip::addItinerary);
 
@@ -99,12 +100,14 @@ public class TripMapperImpl implements TripMapper {
             departure.setAirport(d.airport());
             departure.setTime(d.time());
             departure.setRoomType(d.roomType());
+            departure.setCreated_at(Instant.now());
             return departure;
         }).forEach(trip::addDeparture);
 
         tripRequest.tripPictures().stream().map(tp -> {
             TripPicture tripPicture = new TripPicture();
             tripPicture.setImageUrl(tp.imageUrl());
+            tripPicture.setCreated_at(Instant.now());
             return tripPicture;
         }).forEach(trip::addTripPicture);
 

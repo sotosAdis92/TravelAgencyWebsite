@@ -32,6 +32,6 @@ public class Itinerary {
     @Column(name = "picture")
     private String imageUrl;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private Instant created_at;
 }

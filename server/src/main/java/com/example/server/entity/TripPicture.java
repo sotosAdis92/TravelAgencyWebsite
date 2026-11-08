@@ -27,6 +27,6 @@ public class TripPicture {
     @Column(name = "url", nullable = false, updatable = true)
     private String imageUrl;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private Instant created_at;
 }

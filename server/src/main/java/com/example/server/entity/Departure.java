@@ -36,10 +36,10 @@ public class Departure {
     @Column(name = "time", nullable = false)
     private LocalTime time;
 
-    @Column(name = "room_type", nullable = false)
+    @Column(name = "room_type")
     @Enumerated(EnumType.STRING)
     private RoomType roomType;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     private Instant created_at;
 }
