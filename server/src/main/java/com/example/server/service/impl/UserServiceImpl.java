@@ -3,6 +3,7 @@ package com.example.server.service.impl;
 import com.example.server.dto.request.LoginRequest;
 import com.example.server.dto.request.RegisterRequest;
 import com.example.server.entity.User;
+import com.example.server.mapper.UsersMapper;
 import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    private UsersMapper usersMapper;
 
     @Override
     public User register(RegisterRequest registerRequest) {

@@ -11,7 +11,6 @@ import java.time.Instant;
 @Getter
 @Table(name = "users")
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class User {
     @Id
@@ -31,4 +30,11 @@ public class User {
     @Column(name = "created_at")
     private Instant createdAt;
 
+    public User(Long id, String username, String password, String userRole, Instant createdAt) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.userRole = userRole;
+        this.createdAt = createdAt;
+    }
 }
