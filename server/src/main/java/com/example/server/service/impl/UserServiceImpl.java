@@ -2,13 +2,30 @@ package com.example.server.service.impl;
 
 import com.example.server.dto.request.RegisterRequest;
 import com.example.server.entity.User;
+import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-public class UserServiceImpl implements UserService {
+import java.util.List;
+
+public class UserServiceImpl implements UserService, UserDetailsService {
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public User register(RegisterRequest registerRequest) {
         return null;
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username){
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new RuntimeException("No user found"));
+        return org.springframework.security.core.userdetails.User.withUsername(user.getUsername()).password(user.getPassword()).authorities(List.of(new SimpleGrantedAuthority(user.getUserRole()))).build();
+    }
 }
