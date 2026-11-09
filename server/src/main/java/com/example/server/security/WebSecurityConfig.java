@@ -15,6 +15,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.security.web.context.SecurityContextRepository;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -47,5 +52,17 @@ public class WebSecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource(){
+        CorsConfiguration corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(List.of("https://worldtravel.top","https://www.worldtravel.top","http://localhost:8080"));
+        corsConfiguration.setAllowedMethods(List.of("GET","POST","DELETE","OPTIONS"));
+        corsConfiguration.setAllowedHeaders(List.of("Authorization","Content-Type","X-Requested-With","Accept","X-XSRF-TOKEN"));
+        corsConfiguration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource s = new UrlBasedCorsConfigurationSource();
+        s.registerCorsConfiguration("/**",corsConfiguration);
+        return s;
     }
 }
