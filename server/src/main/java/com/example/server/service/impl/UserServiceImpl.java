@@ -18,6 +18,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -29,7 +30,8 @@ public class UserServiceImpl implements UserService{
     private PasswordEncoder passwordEncoder;
     @Autowired
     private AuthenticationManager authenticationManager;
-    private HttpSessionSecurityContextRepository sessionSecurityContextRepository = new HttpSessionSecurityContextRepository();
+    @Autowired
+    private SecurityContextRepository securityContextRepository;
 
     @Override
     public User register(RegisterRequest registerRequest) {
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService{
         httpServletRequest.getSession(true);
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
-        sessionSecurityContextRepository.saveContext(securityContext,httpServletRequest,httpServletResponse);
+        securityContextRepository.saveContext(securityContext,httpServletRequest,httpServletResponse);
         LoginResponse loginResponse = new LoginResponse(loginRequest.username());
         return loginResponse;
     }
