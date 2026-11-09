@@ -37,6 +37,7 @@ mvnw.cmd spring-boot:run
 
 | Method | URL | Description |
 |--------|-----|-------------|
+|POST    |/api/v1/register/  |Register a new user into the database|
 
 Feautures
 ---
