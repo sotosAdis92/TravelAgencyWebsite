@@ -1,6 +1,8 @@
 package com.example.server.controller;
 
+import com.example.server.dto.request.BookingRequest;
 import com.example.server.dto.response.BookingResponse;
+import com.example.server.entity.Trip;
 import com.example.server.entity.User;
 import com.example.server.service.BookingService;
 import com.example.server.service.UserService;
@@ -28,5 +30,12 @@ public class BookingController {
         User user = userService.getUserFromUsername(userDetails.getUsername());
         List<BookingResponse> bookingResponses = bookingService.findByUser(user);
         return new ResponseEntity<>(bookingResponses,HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<BookingResponse> makeBooking(@AuthenticationPrincipal UserDetails userDetails, @RequestBody BookingRequest bookingRequest){
+        User user = userService.getUserFromUsername(userDetails.getUsername());
+        BookingResponse bookingResponse = bookingService.makeBooking(user, bookingRequest);
+        return new ResponseEntity<>(bookingResponse,HttpStatus.OK);
     }
 }
