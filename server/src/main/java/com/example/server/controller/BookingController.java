@@ -25,11 +25,4 @@ public class BookingController {
         this.bookingService = bookingService;
         this.userService = userService;
     }
-
-    @GetMapping
-    public ResponseEntity<List<BookingResponse>> getUserBookings(@AuthenticationPrincipal UserDetails principal){
-        User user = userService.
-        List<BookingResponse> bookingResponses = bookingService.findByUser()
-        return ResponseEntity<>()
-    }
 }
