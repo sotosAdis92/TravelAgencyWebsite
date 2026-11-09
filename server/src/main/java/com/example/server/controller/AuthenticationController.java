@@ -27,11 +27,13 @@ public class AuthenticationController {
         userService.register(registerRequest);
         return new ResponseEntity<>(new RegisterResponse(registerRequest.username()),HttpStatus.CREATED);
     }
+
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse){
         LoginResponse loginResponse = userService.login(loginRequest,httpServletRequest,httpServletResponse);
         return new ResponseEntity<>(loginResponse,HttpStatus.OK);
     }
+
     @PostMapping("/logout")
     public ResponseEntity<String> logout(){
         return null;
