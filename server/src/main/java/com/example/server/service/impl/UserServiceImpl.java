@@ -10,7 +10,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -55,6 +58,18 @@ public class UserServiceImpl implements UserService{
         securityContextRepository.saveContext(securityContext,httpServletRequest,httpServletResponse);
         LoginResponse loginResponse = new LoginResponse(loginRequest.username());
         return loginResponse;
+    }
+
+    @Override
+    public ResponseEntity<String> logout(HttpServletRequest httpServletRequest) {
+        HttpSession httpSession = httpServletRequest.getSession(false);
+        if(httpSession!=null){
+            httpSession.invalidate();
+        }
+        SecurityContextHolder.clearContext();
+        ResponseCookie jsessionCookie = ResponseCookie.from("JSESSIONID","").maxAge(0).path("/").httpOnly(true).sameSite("Strict").build();
+        ResponseCookie xsrfToken = ResponseCookie.from("XSRF-TOKEN","").maxAge(0).path("/").build();
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jsessionCookie.toString()).header(HttpHeaders.SET_COOKIE, xsrfToken.toString()).body("Logged out");
     }
 
 
