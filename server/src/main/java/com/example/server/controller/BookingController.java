@@ -1,8 +1,6 @@
 package com.example.server.controller;
 
-import com.example.server.dto.request.BookingRequest;
 import com.example.server.dto.response.BookingResponse;
-import com.example.server.entity.Trip;
 import com.example.server.entity.User;
 import com.example.server.service.BookingService;
 import com.example.server.service.UserService;
