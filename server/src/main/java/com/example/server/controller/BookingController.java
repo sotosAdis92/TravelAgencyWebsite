@@ -31,6 +31,13 @@ public class BookingController {
         return new ResponseEntity<>(bookingResponses,HttpStatus.OK);
     }
 
+    @DeleteMapping("/my-bookings/{id}")
+    public ResponseEntity<String> deleteBooking(@PathVariable("id") Long id, @AuthenticationPrincipal UserDetails userDetails){
+        User user = userService.getUserFromUsername(userDetails.getUsername());
+        bookingService.deleteBooking(id,user);
+        return new ResponseEntity<>("Deleted the booking", HttpStatus.NO_CONTENT);
+    }
+
     @PostMapping
     public ResponseEntity<BookingResponse> makeBooking(@AuthenticationPrincipal UserDetails userDetails, @RequestBody BookingRequest bookingRequest){
         User user = userService.getUserFromUsername(userDetails.getUsername());
@@ -38,10 +45,4 @@ public class BookingController {
         return new ResponseEntity<>(bookingResponse,HttpStatus.OK);
     }
 
-    @DeleteMapping("/my-bookings/{id}")
-    public ResponseEntity<String> deleteBooking(@PathVariable("id") Long id, @AuthenticationPrincipal UserDetails userDetails){
-        User user = userService.getUserFromUsername(userDetails.getUsername());
-        bookingService.deleteBooking(id,user);
-        return new ResponseEntity<>("Deleted the booking", HttpStatus.NO_CONTENT);
-    }
 }
