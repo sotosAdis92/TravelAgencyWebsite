@@ -1,7 +1,6 @@
 package com.example.server.security;
 
 import com.example.server.service.impl.CustomUserDetailService;
-import com.example.server.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
