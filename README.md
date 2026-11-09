@@ -32,6 +32,12 @@ The idea behind the project was to create a Backend web app for a travel agency 
 cd server
 mvnw.cmd spring-boot:run
 ```
+
+# API Endpoints
+
+| Method | URL | Description |
+|--------|-----|-------------|
+
 Feautures
 ---
 - Swagger UI API Documentation
