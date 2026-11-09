@@ -1,5 +1,6 @@
 package com.example.server.security;
 
+import com.example.server.service.impl.CustomUserDetailService;
 import com.example.server.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,7 +25,7 @@ public class WebSecurityConfig {
         httpSecurity
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .requestMatchers("/api/v1/login/**","/api/v1/register/**","/error","/swagger-ui/**").permitAll()
+                        .requestMatchers("/api/v1/login","/api/v1/register","/error","/swagger-ui/**").permitAll()
                         .requestMatchers("/api/v1/continent/**","/api/v1/country/**","/api/v1/trip/**","/api/v1/logout/**").authenticated().anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
@@ -33,7 +34,7 @@ public class WebSecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(){
-        return new UserServiceImpl();
+        return new CustomUserDetailService();
     }
 
     @Bean
