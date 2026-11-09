@@ -1,9 +1,7 @@
 package com.example.server.service.impl;
 
 import com.example.server.dto.request.TripRequest;
-import com.example.server.dto.response.CountryResponse;
 import com.example.server.dto.response.TripResponse;
-import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
 import com.example.server.entity.Trip;
 import com.example.server.exception.CountryNotFoundException;
@@ -14,7 +12,6 @@ import com.example.server.repository.TripRepository;
 import com.example.server.service.TripService;
 import org.springframework.stereotype.Service;
 
-import java.time.Instant;
 import java.util.List;
 
 @Service
