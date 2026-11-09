@@ -13,7 +13,6 @@ import com.example.server.service.TripService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TripServiceImpl implements TripService {
@@ -32,6 +31,11 @@ public class TripServiceImpl implements TripService {
     public List<TripResponse> getTripsByCountry(Long countryId) {
         List<TripResponse> trips = tripMapper.toDto(tripRepository.findAllByCountry_Id(countryId));
         return trips;
+    }
+
+    @Override
+    public TripResponse findById(Long Id) {
+        return tripMapper.toDto(tripRepository.findById(Id).orElseThrow(() -> new TripNotFoundException("Trip with this id not found")));
     }
 
 }
