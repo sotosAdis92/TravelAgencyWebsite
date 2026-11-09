@@ -4,7 +4,7 @@
 
 ### Project Idea
 
-The idea behind the project was to create a Backend web app for a travel agency (Ταξιδιωτικό Πρακτορείο) where Admin can enter, see trips around the world. As a person who loves travelling and geography, I decided to create this app instead of a geography quiz app. Inspired by other popular websites and apps, I decided that it would be fun to see what I can create — plus I wanted to try out some new technologies and get a better grasp of the Spring Boot Framework and PostgreSQL database management.
+The idea behind the project was to create a Backend web app for a travel agency (Ταξιδιωτικό Πρακτορείο) where a client can enter, see trips around the world, book them and cancel them. It is a very simple API and the main idea behind it was to get to know the simple user authentication through Spring Boot JDBC Session management and user details. As a person who loves travelling and geography, I decided to create this app instead of a geography quiz app. Inspired by other popular websites and apps, I decided that it would be fun to see what I can create — plus I wanted to try out some new technologies and get a better grasp of the Spring Boot Framework and PostgreSQL database management.
 
 ---
 
