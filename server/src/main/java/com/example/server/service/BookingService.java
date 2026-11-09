@@ -1,5 +1,6 @@
 package com.example.server.service;
 
+import com.example.server.dto.request.BookingRequest;
 import com.example.server.dto.response.BookingResponse;
 import com.example.server.entity.User;
 import org.springframework.stereotype.Service;

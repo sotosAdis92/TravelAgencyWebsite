@@ -25,28 +25,4 @@ public class ContinentServiceImpl implements ContinentService {
         List<ContinentResponse> continents = continentMapper.toDto(continentRepository.findAll());
         return continents;
     }
-
-    @Override
-    public ContinentResponse createContinent(ContinentRequest continentRequest) {
-       Continent continent = continentMapper.toEntity(continentRequest);
-       return continentMapper.toDto(continentRepository.save(continent));
-    }
-
-    @Override
-    public ContinentResponse updateContinent(ContinentRequest continentRequest, Long id) {
-        Continent continent = continentRepository.findById(id).orElseThrow(() -> new RuntimeException("No Continent found with this id: " + id));
-        continent.setName(continentRequest.name());
-        continent.setPopulation(continentRequest.population());
-        continent.setLandArea(continentRequest.landArea());
-        continent.setImageUrl(continentRequest.imageUrl());
-        continent.setMapUrl(continentRequest.mapUrl());
-        continentRepository.save(continent);
-        return continentMapper.toDto(continent);
-    }
-
-    @Override
-    public void deleteContinent(Long id) {
-        Continent continent = continentRepository.findById(id).orElseThrow(() -> new RuntimeException("No Continent Found with this id: " + id));
-        continentRepository.delete(continent);
-    }
 }

@@ -31,30 +31,5 @@ public class CountryServiceImpl implements CountryService {
         return countries;
     }
 
-    @Override
-    public CountryResponse createCountry(CountryRequest countryRequest) {
-        Continent continentFromRequest = continentRepository.findById(countryRequest.continentId()).orElseThrow(() -> new RuntimeException("Could not find Continent with specified id " + countryRequest.continentId()));
-        Country country = countryMapper.toEntity(countryRequest, continentFromRequest);
-        return countryMapper.toDto(countryRepository.save(country));
-    }
 
-    @Override
-    public CountryResponse updateCountry(CountryRequest countryRequest, Long id) {
-        Country country = countryRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find country with an ID of: " + id));
-        Continent continent = continentRepository.findById(countryRequest.continentId()).orElseThrow(() -> new RuntimeException("Could not find continent with id of:" + id));
-        country.setContinent(continent);
-        country.setName(countryRequest.name());
-        country.setPopulation(countryRequest.population());
-        country.setImageUrl(countryRequest.imageUrl());
-        country.setMapUrl(countryRequest.imageUrl());
-        country.setUpdated_at(Instant.now());
-        countryRepository.save(country);
-        return countryMapper.toDto(country);
-    }
-
-    @Override
-    public void deleteCountry(Long id) {
-        Country country = countryRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find country with that id:" + id));
-        countryRepository.delete(country);
-    }
 }
