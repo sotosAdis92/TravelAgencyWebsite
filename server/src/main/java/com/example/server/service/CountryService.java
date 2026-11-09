@@ -7,7 +7,4 @@ import java.util.List;
 
 public interface CountryService {
     List<CountryResponse> getAllCountriesByContinent(Long continentId);
-    CountryResponse createCountry(CountryRequest countryRequest);
-    CountryResponse updateCountry(CountryRequest countryRequest, Long id);
-    void deleteCountry(Long id);
 }

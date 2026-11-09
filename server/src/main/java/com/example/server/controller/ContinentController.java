@@ -23,22 +23,4 @@ public class ContinentController {
         List<ContinentResponse> continents = continentService.getAllContinents();
         return new ResponseEntity<>(continents, HttpStatus.OK);
     }
-
-    @PostMapping
-    public ResponseEntity<ContinentResponse> createContinent(@RequestBody ContinentRequest continent){
-        ContinentResponse continentResponse = continentService.createContinent(continent);
-        return new ResponseEntity<>(continentResponse,HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<ContinentResponse> updateContinent(@RequestBody ContinentRequest continent, @PathVariable("id") Long id){
-        ContinentResponse continentResponse = continentService.updateContinent(continent, id);
-        return new ResponseEntity<>(continentResponse, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteContinent(@PathVariable("id") Long id){
-        continentService.deleteContinent(id);
-        return new ResponseEntity<>("Deleted the continent with an id of:" + id, HttpStatus.NO_CONTENT);
-    }
 }

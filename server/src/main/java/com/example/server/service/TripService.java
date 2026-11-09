@@ -8,7 +8,4 @@ import java.util.List;
 
 public interface TripService {
     List<TripResponse> getTripsByCountry(Long countryId);
-    TripResponse createTrip(TripRequest tripRequest);
-    TripResponse updateTrip(TripRequest tripRequest ,Long id);
-    void deleteTrip(Long id);
 }

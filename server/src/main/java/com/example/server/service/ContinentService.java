@@ -8,7 +8,4 @@ import java.util.List;
 
 public interface ContinentService {
     List<ContinentResponse> getAllContinents();
-    ContinentResponse createContinent(ContinentRequest continentRequest);
-    ContinentResponse updateContinent(ContinentRequest continentRequest, Long id);
-    void deleteContinent(Long id);
 }

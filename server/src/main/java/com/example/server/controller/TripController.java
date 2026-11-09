@@ -23,22 +23,4 @@ public class TripController {
         List<TripResponse> trips = tripService.getTripsByCountry(countryId);
         return new ResponseEntity<>(trips, HttpStatus.OK);
     }
-
-    @PostMapping
-    public ResponseEntity<TripResponse> createTrip(@RequestBody TripRequest tripRequest){
-        TripResponse trip = tripService.createTrip(tripRequest);
-        return new ResponseEntity<>(trip,HttpStatus.CREATED);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<TripResponse> updateTrip(@RequestBody TripRequest tripRequest, @PathVariable("id") Long id){
-        TripResponse trip = tripService.updateTrip(tripRequest, id);
-        return new ResponseEntity<>(trip,HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteCountry(@PathVariable("id") Long id){
-        tripService.deleteTrip(id);
-        return new ResponseEntity<>("Deleted the country with an id of:" + id, HttpStatus.NO_CONTENT);
-    }
 }
