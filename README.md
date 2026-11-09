@@ -1,32 +1,30 @@
 # Travel Agency Website
 
+A backend web application for a travel agency (Ταξιδιωτικό Πρακτορείο) where clients can browse trips around the world, book them, and cancel them.
+
 ## Project Idea and Inspiration
 
-### Project Idea
+The goal of this project was to build a simple API while learning user authentication through Spring Boot's JDBC session management and user details. As someone who loves travelling and geography, I chose to build a travel app instead of a geography quiz app. Inspired by popular travel websites and apps, I wanted to see what I could create while trying out new technologies and getting a better grasp of the Spring Boot framework and PostgreSQL database management.
 
-The idea behind the project was to create a Backend web app for a travel agency (Ταξιδιωτικό Πρακτορείο) where a client can enter, see trips around the world, book them and cancel them. It is a very simple API and the main idea behind it was to get to know the simple user authentication through Spring Boot JDBC Session management and user details. As a person who loves travelling and geography, I decided to create this app instead of a geography quiz app. Inspired by other popular websites and apps, I decided that it would be fun to see what I can create — plus I wanted to try out some new technologies and get a better grasp of the Spring Boot Framework and PostgreSQL database management.
+## Prerequisites
 
----
+To run the project locally, you will need:
 
-## Prerequisites to Run Locally
-
-- Java JDK 25 installed
+- Java JDK 25
 - Spring Boot 4.1.2
-- Postgres 17.10
-- Node.js v22.10 installed
+- PostgreSQL 17.10
+- Node.js v22.10
 
----
+## Running the Backend
 
-## Run the Backend
+> **Note:** This is a monorepo — the Maven `pom.xml` lives inside `/server`, not at the repository root. If you open the root directory, it will not be detected as a Spring Boot project and the run button will not appear.
 
-> **Note:** This is a monorepo — the Maven `pom.xml` is inside `/server`, not at the root of the repository. If you open the root, it will not be detected as a Spring Boot project and thus will not have the button to run it.
-
-### Open the backend in IntelliJ
+### Opening the Backend in IntelliJ
 
 1. `File` → `Open...` → select `server/pom.xml` → **"Open as Project"**
 2. `File` → `Project Structure` → `Project` → set **SDK** to JDK 25 (download via `SDKs` → `+` → `Download JDK` → `25` if needed) and **Language level** to 25.
 
-### Run via terminal
+### Running via Terminal
 
 ```shell
 cd server
