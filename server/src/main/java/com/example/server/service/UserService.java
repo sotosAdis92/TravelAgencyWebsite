@@ -12,4 +12,5 @@ public interface UserService {
     User register(RegisterRequest registerRequest);
     LoginResponse login(LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse);
     ResponseEntity<String> logout(HttpServletRequest httpServletRequest);
+    User getUserFromUsername(String username);
 }

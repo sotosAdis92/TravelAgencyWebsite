@@ -72,5 +72,10 @@ public class UserServiceImpl implements UserService{
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jsessionCookie.toString()).header(HttpHeaders.SET_COOKIE, xsrfToken.toString()).body("Logged out");
     }
 
+    @Override
+    public User getUserFromUsername(String username) {
+        return userRepository.getUserByUsername(username);
+    }
+
 
 }
