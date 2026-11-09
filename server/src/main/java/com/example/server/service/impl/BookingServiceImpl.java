@@ -1,15 +1,11 @@
 package com.example.server.service.impl;
 
 import com.example.server.dto.request.BookingRequest;
-import com.example.server.dto.request.TripRequest;
 import com.example.server.dto.response.BookingResponse;
 import com.example.server.dto.response.TripResponse;
-import com.example.server.entity.Booking;
 import com.example.server.entity.Trip;
 import com.example.server.entity.User;
-import com.example.server.exception.TripNotFoundException;
 import com.example.server.mapper.BookingMapper;
-import com.example.server.mapper.TripMapper;
 import com.example.server.repository.BookingRepository;
 import com.example.server.service.BookingService;
 import com.example.server.service.TripService;
@@ -20,33 +16,20 @@ public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
     private final BookingMapper bookingMapper;
     private final TripService tripService;
-    private final TripMapper tripMapper;
 
-    public BookingServiceImpl(BookingRepository bookingRepository, BookingMapper bookingMapper, TripService tripService, TripMapper tripMapper) {
+    public BookingServiceImpl(BookingRepository bookingRepository, BookingMapper bookingMapper, TripService tripService) {
         this.bookingRepository = bookingRepository;
         this.bookingMapper = bookingMapper;
         this.tripService = tripService;
-        this.tripMapper = tripMapper;
     }
 
     @Override
     public List<BookingResponse> findByUser(User user) {
         List<BookingResponse> bookingResponses = bookingMapper.toDto(bookingRepository.findByUser(user));
-        return List.of();
+        return bookingResponses;
     }
 
-    @Override
     public BookingResponse makeBooking(User user, BookingRequest bookingRequest){
-        TripRequest trip = tripService.findById(bookingRequest.tripId());
-        Trip tripFromRequest = tripMapper.toEntity(trip);
-        int capacity = trip.capacity();
-        Long userId = user.getId();
-        if(capacity == 0){
-            throw new RuntimeException("Cannot book trip, capacity is zero");
-        }
-        else {
-            capacity = capacity - 1;
-            bookingMapper.toEntity(bookingRequest,,user);
-        }
+
     }
 }
