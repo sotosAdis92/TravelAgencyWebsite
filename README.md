@@ -49,3 +49,7 @@ Feautures
 ---
 - Swagger UI API Documentation
 - Spring Security
+
+---
+# ERD
+![alt text](https://github.com/sotosAdis92/TravelAgencyWebsite/blob/main/screenshots/ERDTourismWebAPI.JPG?raw=true)
