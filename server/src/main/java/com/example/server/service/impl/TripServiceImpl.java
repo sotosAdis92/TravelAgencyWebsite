@@ -6,6 +6,8 @@ import com.example.server.dto.response.TripResponse;
 import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
 import com.example.server.entity.Trip;
+import com.example.server.exception.CountryNotFoundException;
+import com.example.server.exception.TripNotFoundException;
 import com.example.server.mapper.TripMapper;
 import com.example.server.repository.CountryRepository;
 import com.example.server.repository.TripRepository;
@@ -36,15 +38,15 @@ public class TripServiceImpl implements TripService {
 
     @Override
     public TripResponse createTrip(TripRequest tripRequest) {
-        Country countryFromRequest = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new RuntimeException("Could not find Continent with specified id " + tripRequest.countryId()));
+        Country countryFromRequest = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new CountryNotFoundException("Could not find Continent with specified id " + tripRequest.countryId()));
         Trip trip = tripMapper.toEntity(tripRequest, countryFromRequest);
         return tripMapper.toDto(tripRepository.save(trip));
     }
 
     @Override
     public TripResponse updateTrip(TripRequest tripRequest,Long id) {
-        Trip trip = tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Could not find trip with an ID of: " + id));
-        Country country = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new RuntimeException("Could not find country with id of:" + id));
+        Trip trip = tripRepository.findById(id).orElseThrow(() -> new TripNotFoundException("Could not find trip with an ID of: " + id));
+        Country country = countryRepository.findById(tripRequest.countryId()).orElseThrow(() -> new CountryNotFoundException("Could not find country with id of:" + id));
         Trip tripFromDto = tripMapper.toEntity(tripRequest);
         trip.setCountry(country);
         trip.setTitle(tripRequest.title());
@@ -65,7 +67,7 @@ public class TripServiceImpl implements TripService {
 
     @Override
     public void deleteTrip(Long id) {
-        Trip trip = tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Trip not found with an id of: " + id));
+        Trip trip = tripRepository.findById(id).orElseThrow(() -> new TripNotFoundException("Trip not found with an id of: " + id));
         tripRepository.delete(trip);
     }
 }
