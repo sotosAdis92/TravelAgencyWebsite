@@ -115,6 +115,57 @@ public class TripMapperImpl implements TripMapper {
     }
 
     @Override
+    public Trip toEntity(TripResponse tripResponse) {
+        Trip trip = new Trip(
+                null,
+                null,
+                tripResponse.title(),
+                tripResponse.duration(),
+                tripResponse.tripCategory(),
+                tripResponse.nights(),
+                tripResponse.physicalCondition(),
+                tripResponse.cost(),
+                tripResponse.description(),
+                tripResponse.imageMap(),
+                tripResponse.imageUrl(),
+                tripResponse.capacity(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                new ArrayList<>(),
+                Instant.now(),
+                Instant.now()
+        );
+        tripResponse.itineraries().stream().map(i -> {
+            Itinerary itinerary = new Itinerary();
+            itinerary.setDayNumber(i.dayNumber());
+            itinerary.setLocation(i.location());
+            itinerary.setDescription(i.description());
+            itinerary.setImageUrl(i.imageUrl());
+            itinerary.setCreated_at(Instant.now());
+            return itinerary;
+        }).forEach(trip::addItinerary);
+
+        tripResponse.departures().stream().map(d -> {
+            Departure departure = new Departure();
+            departure.setDate(d.date());
+            departure.setAirport(d.airport());
+            departure.setTime(d.time());
+            departure.setRoomType(d.roomType());
+            departure.setCreated_at(Instant.now());
+            return departure;
+        }).forEach(trip::addDeparture);
+
+        tripResponse.tripPictures().stream().map(tp -> {
+            TripPicture tripPicture = new TripPicture();
+            tripPicture.setImageUrl(tp.imageUrl());
+            tripPicture.setCreated_at(Instant.now());
+            return tripPicture;
+        }).forEach(trip::addTripPicture);
+
+        return trip;
+    }
+
+    @Override
     public TripResponse toDto(Trip trip) {
 
         List<ItineraryResponse> itineraries = trip.getItineraries().stream().map(itinerary ->

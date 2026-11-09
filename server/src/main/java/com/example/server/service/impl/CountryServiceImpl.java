@@ -30,6 +30,4 @@ public class CountryServiceImpl implements CountryService {
         List<CountryResponse> countries = countryMapper.toDto(countryRepository.findCountriesByContinent_Id(continentId));
         return countries;
     }
-
-
 }
