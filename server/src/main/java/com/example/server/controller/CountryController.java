@@ -1,8 +1,6 @@
 package com.example.server.controller;
 
-import com.example.server.dto.request.CountryRequest;
 import com.example.server.dto.response.CountryResponse;
-import com.example.server.entity.Country;
 import com.example.server.service.CountryService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
