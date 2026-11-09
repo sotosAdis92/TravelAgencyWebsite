@@ -9,9 +9,11 @@ import com.example.server.mapper.BookingMapper;
 import com.example.server.repository.BookingRepository;
 import com.example.server.service.BookingService;
 import com.example.server.service.TripService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
     private final BookingMapper bookingMapper;
@@ -30,6 +32,14 @@ public class BookingServiceImpl implements BookingService {
     }
 
     public BookingResponse makeBooking(User user, BookingRequest bookingRequest){
+        return null;
+    }
 
+    @Override
+    public boolean deleteBooking(Long id, User user) {
+        return bookingRepository.findById(id).filter(b -> b.getUser().getId().equals(user.getId())).map(b -> {
+            bookingRepository.delete(b);
+            return true;
+        }).orElse(false);
     }
 }

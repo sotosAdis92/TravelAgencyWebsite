@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
 public interface BookingService {
     List<BookingResponse> findByUser(User user);
     BookingResponse makeBooking(User user, BookingRequest bookingRequest);
+    boolean deleteBooking(Long id, User user);
 }
