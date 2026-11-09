@@ -1,6 +1,5 @@
 package com.example.server.controller;
 
-import com.example.server.dto.request.ContinentRequest;
 import com.example.server.dto.response.ContinentResponse;
 import com.example.server.service.ContinentService;
 import org.springframework.http.HttpStatus;
