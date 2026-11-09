@@ -27,7 +27,7 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/api/v1/login","/api/v1/register","/error","/swagger-ui/**").permitAll()
-                        .requestMatchers("/api/v1/continent/**","/api/v1/country/**","/api/v1/trip/**","/api/v1/logout/**").authenticated().anyRequest().authenticated()
+                        .requestMatchers("/api/v1/continent/**","/api/v1/country/**","/api/v1/trip/**","/api/v1/logout/**").authenticated()
                 )
                 .httpBasic(Customizer.withDefaults());
         return httpSecurity.build();
