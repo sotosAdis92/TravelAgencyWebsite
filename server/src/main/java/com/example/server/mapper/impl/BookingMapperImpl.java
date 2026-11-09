@@ -6,10 +6,12 @@ import com.example.server.entity.Booking;
 import com.example.server.entity.Trip;
 import com.example.server.entity.User;
 import com.example.server.mapper.BookingMapper;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.List;
 
+@Component
 public class BookingMapperImpl implements BookingMapper {
     @Override
     public Booking toEntity(BookingRequest bookingRequest,Trip tripById, User userById) {
