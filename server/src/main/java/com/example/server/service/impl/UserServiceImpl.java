@@ -8,6 +8,7 @@ import com.example.server.repository.UserRepository;
 import com.example.server.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -42,6 +43,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public LoginResponse login(LoginRequest loginRequest, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.username(), loginRequest.password()));
+        HttpSession existing = httpServletRequest.getSession(false);
+        if(existing != null){
+            existing.invalidate();
+        }
+        httpServletRequest.getSession(true);
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
         sessionSecurityContextRepository.saveContext(securityContext,httpServletRequest,httpServletResponse);
