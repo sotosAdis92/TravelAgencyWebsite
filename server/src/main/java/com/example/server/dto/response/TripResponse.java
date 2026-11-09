@@ -17,9 +17,6 @@ public record TripResponse(
         String description,
         String imageMap,
         String imageUrl,
-        int capacity,
-        List<ItineraryResponse> itineraries,
-        List<DepartureResponse> departures,
-        List<TripPictureResponse> tripPictures
+        int capacity
 ) {
 }

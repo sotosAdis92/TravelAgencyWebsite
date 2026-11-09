@@ -116,6 +116,7 @@ public class TripMapperImpl implements TripMapper {
 
     @Override
     public TripResponse toDto(Trip trip) {
+        /*
         List<ItineraryResponse> itineraries = trip.getItineraries().stream().map(itinerary ->
             new ItineraryResponse(
                     itinerary.getId(),
@@ -143,6 +144,8 @@ public class TripMapperImpl implements TripMapper {
                         itinerary.getImageUrl()
                 )).toList();
 
+         */
+
         TripResponse tripResponse = new TripResponse(
                 trip.getId(),
                 trip.getCountry().getId(),
@@ -155,10 +158,7 @@ public class TripMapperImpl implements TripMapper {
                 trip.getDescription(),
                 trip.getImageMap(),
                 trip.getImageUrl(),
-                trip.getCapacity(),
-                itineraries,
-                departures,
-                tripPictures
+                trip.getCapacity()
         );
         return tripResponse;
     }
