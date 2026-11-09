@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService{
         if(userRepository.existsByUsername(registerRequest.username())){
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
-        User user = User.builder().username(registerRequest.username()).password(passwordEncoder.encode(registerRequest.password())).userRole("USER_ROLE").build();
+        User user = User.builder().username(registerRequest.username()).password(passwordEncoder.encode(registerRequest.password())).userRole("ROLE_USER").build();
         return userRepository.save(user);
     }
 
