@@ -5,6 +5,7 @@ import com.example.server.dto.response.CountryResponse;
 import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
 import com.example.server.enums.ContinentNames;
+import com.example.server.exception.CountryNotFoundException;
 import com.example.server.mapper.CountryMapper;
 import com.example.server.repository.ContinentRepository;
 import com.example.server.repository.CountryRepository;
@@ -30,5 +31,10 @@ public class CountryServiceImpl implements CountryService {
     public List<CountryResponse> getAllCountriesByContinent(String continent) {
         ContinentNames name = ContinentNames.valueOf(continent);
         return countryMapper.toDto(countryRepository.findCountriesByContinent_Name(name));
+    }
+
+    @Override
+    public CountryResponse getCountryById(Long id) {
+        return countryMapper.toDto(countryRepository.findById(id).orElseThrow(() -> new CountryNotFoundException("Country not found with id:" + id)));
     }
 }

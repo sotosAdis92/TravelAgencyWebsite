@@ -26,4 +26,9 @@ public class CountryController {
         List<CountryResponse> countries = countryService.getAllCountriesByContinent(continent);
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CountryResponse> getCountry(@PathVariable("id") Long id){
+
+    }
 }

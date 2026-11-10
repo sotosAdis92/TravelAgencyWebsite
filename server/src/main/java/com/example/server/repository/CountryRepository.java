@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Long> {
     List<Country> findCountriesByContinent_Name(ContinentNames continentName);
+    Country findCountryById(Long id);
 }
