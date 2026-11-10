@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface TripRepository extends JpaRepository<Trip, Long> {
-    List<Trip> findAllByCountry_Id(Long countryId);
+    List<Trip> findAllByCountry_Name(String countryName);
     Optional<Trip> findById(Long id);
 }

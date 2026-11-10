@@ -6,5 +6,5 @@ import com.example.server.dto.response.CountryResponse;
 import java.util.List;
 
 public interface CountryService {
-    List<CountryResponse> getAllCountriesByContinent(Long continentId);
+    List<CountryResponse> getAllCountriesByContinent(String continentId);
 }

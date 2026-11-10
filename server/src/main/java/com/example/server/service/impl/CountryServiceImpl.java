@@ -4,6 +4,7 @@ import com.example.server.dto.request.CountryRequest;
 import com.example.server.dto.response.CountryResponse;
 import com.example.server.entity.Continent;
 import com.example.server.entity.Country;
+import com.example.server.enums.ContinentNames;
 import com.example.server.mapper.CountryMapper;
 import com.example.server.repository.ContinentRepository;
 import com.example.server.repository.CountryRepository;
@@ -26,8 +27,8 @@ public class CountryServiceImpl implements CountryService {
     }
 
     @Override
-    public List<CountryResponse> getAllCountriesByContinent(Long continentId) {
-        List<CountryResponse> countries = countryMapper.toDto(countryRepository.findCountriesByContinent_Id(continentId));
-        return countries;
+    public List<CountryResponse> getAllCountriesByContinent(String continent) {
+        ContinentNames name = ContinentNames.valueOf(continent);
+        return countryMapper.toDto(countryRepository.findCountriesByContinent_Name(name));
     }
 }

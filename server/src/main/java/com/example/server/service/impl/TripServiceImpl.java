@@ -3,30 +3,27 @@ package com.example.server.service.impl;
 import com.example.server.dto.response.TripResponse;
 import com.example.server.exception.TripNotFoundException;
 import com.example.server.mapper.TripMapper;
-import com.example.server.repository.CountryRepository;
 import com.example.server.repository.TripRepository;
 import com.example.server.service.TripService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TripServiceImpl implements TripService {
 
     private final TripMapper tripMapper;
     private final TripRepository tripRepository;
-    private final CountryRepository countryRepository;
 
-    public TripServiceImpl(TripMapper tripMapper, TripRepository tripRepository, CountryRepository countryRepository) {
+    public TripServiceImpl(TripMapper tripMapper, TripRepository tripRepository) {
         this.tripMapper = tripMapper;
         this.tripRepository = tripRepository;
-        this.countryRepository = countryRepository;
     }
 
+
     @Override
-    public List<TripResponse> getTripsByCountry(Long countryId) {
-        List<TripResponse> trips = tripMapper.toDto(tripRepository.findAllByCountry_Id(countryId));
+    public List<TripResponse> getTripsByCountryName(String countryName) {
+        List<TripResponse> trips = tripMapper.toDto(tripRepository.findAllByCountry_Name(countryName));
         return trips;
     }
 

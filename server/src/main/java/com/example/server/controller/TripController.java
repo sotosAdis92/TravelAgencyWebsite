@@ -17,9 +17,9 @@ public class TripController {
         this.tripService = tripService;
     }
 
-    @GetMapping("/{countryId}")
-    public ResponseEntity<List<TripResponse>> getTripsByCountry(@PathVariable("countryId") Long countryId){
-        List<TripResponse> trips = tripService.getTripsByCountry(countryId);
+    @GetMapping
+    public ResponseEntity<List<TripResponse>> getTripsByCountry(@RequestParam(required = true) String countryName){
+        List<TripResponse> trips = tripService.getTripsByCountryName(countryName);
         return new ResponseEntity<>(trips, HttpStatus.OK);
     }
 }

@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TripService {
-    List<TripResponse> getTripsByCountry(Long countryId);
+    List<TripResponse> getTripsByCountryName(String countryName);
     TripResponse findById(Long Id);
 }

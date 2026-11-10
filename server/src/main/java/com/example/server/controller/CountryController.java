@@ -20,10 +20,10 @@ public class CountryController {
         this.countryService = countryService;
     }
 
-    @ApiResponse(responseCode = "200",description = "List of countries by continent with id", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CountryResponse.class))})
-    @GetMapping("/{continentId}")
-    public ResponseEntity<List<CountryResponse>> getAllCountriesByContinentId(@PathVariable("continentId") Long continentId){
-        List<CountryResponse> countries = countryService.getAllCountriesByContinent(continentId);
+    @ApiResponse(responseCode = "200",description = "List of countries by continent", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CountryResponse.class))})
+    @GetMapping
+    public ResponseEntity<List<CountryResponse>> getAllCountriesByContinent(@RequestParam(required = true) String continent){
+        List<CountryResponse> countries = countryService.getAllCountriesByContinent(continent);
         return new ResponseEntity<>(countries, HttpStatus.OK);
     }
 }
