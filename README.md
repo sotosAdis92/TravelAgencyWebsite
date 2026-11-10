@@ -49,6 +49,7 @@ Feautures
 ---
 - Swagger UI API Documentation
 - Spring Security
+- Rate Limiter 
 
 ---
 # ERD
