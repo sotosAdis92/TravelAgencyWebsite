@@ -52,7 +52,7 @@ Fully integrated **Swagger UI** provides a live, interactive reference for every
 ### Robust Security with Spring Security
 Built on **Spring Security**, the API enforces authentication and authorization at every layer. It supports secure credential handling, role-based access control, and protection against common vulnerabilities such as CSRF and session fixation — ensuring only authorized users can access protected resources.
 
-### Intelligent Rate Limiting
+### Rate Limiting/Anti-Spam Mechanism
 A configurable **rate limiter** protects the API from abuse and traffic spikes by controlling how many requests a client can make within a given time window. This safeguards service availability, prevents denial-of-service attempts, and ensures fair resource usage across all consumers.
 
 ---
