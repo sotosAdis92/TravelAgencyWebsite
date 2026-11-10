@@ -1,8 +1,5 @@
 package com.example.server.dto.response;
 
-import com.example.server.dto.request.DepartureRequest;
-import com.example.server.dto.request.ItineraryRequest;
-import com.example.server.dto.request.TripPictureRequest;
 import com.example.server.enums.PhysicalConditions;
 import com.example.server.enums.TripCategory;
 
