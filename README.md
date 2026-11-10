@@ -41,9 +41,10 @@ mvnw.cmd spring-boot:run
 |POST    |/api/v1/booking  |Create a new booking|
 |DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|
 |GET    |/api/v1/booking/my-bookings  |Get a users bookings|
-|GET    |/api/v1/continent  |Get all continents from the database|
-|GET    |/api/v1/country/{continentId}  |Get all countries from the continent with id|
-|GET    |/api/v1/trip/{countryId}  |Get all trips from the country with id|
+|GET    |/api/v1/continents  |Get all continents from the database|
+|GET    |/api/v1/countries  |Get all countries |
+|GET    |/api/v1/trips  |Get all trips |
+|GET    |/api/v1/trips/{id}  |Get trip with id|
 
 ### Interactive API Documentation
 Fully integrated **Swagger UI** provides a live, interactive reference for every endpoint — including request payloads, response schemas, status codes, and authentication requirements. Developers can explore and test the API directly from the browser, making integration faster and more transparent.
