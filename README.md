@@ -44,6 +44,7 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/continents  |Get all continents from the database|
 |GET    |/api/v1/countries  |Get all countries |
 |GET    |/api/v1/trips  |Get all trips |
+|GET    |/api/v1/trips/{id}  |Get trip with id|
 
 ### Interactive API Documentation
 Fully integrated **Swagger UI** provides a live, interactive reference for every endpoint — including request payloads, response schemas, status codes, and authentication requirements. Developers can explore and test the API directly from the browser, making integration faster and more transparent.
