@@ -22,4 +22,10 @@ public class TripController {
         List<TripResponse> trips = tripService.getTripsByCountryName(countryName);
         return new ResponseEntity<>(trips, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TripResponse> getTrip(@PathVariable("id") Long id){
+        TripResponse trip = tripService.findById(id);
+        return new ResponseEntity<>(trip, HttpStatus.OK);
+    }
 }
