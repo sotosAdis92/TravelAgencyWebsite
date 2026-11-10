@@ -42,8 +42,8 @@ mvnw.cmd spring-boot:run
 |DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|
 |POST    |/api/v1/booking  |Create a new booking|
 |GET    |/api/v1/continent  |Get all continents from the database|
-|GET    |/api/v1/country/continent/{continentId}  |Get all countries from the continent with id|
-|GET    |/api/v1/trip/country/{countryId}  |Get all trips from the country with id|
+|GET    |/api/v1/country/{continentId}  |Get all countries from the continent with id|
+|GET    |/api/v1/trip/{countryId}  |Get all trips from the country with id|
 
 Feautures
 ---
