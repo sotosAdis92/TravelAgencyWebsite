@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/continent")
+@RequestMapping("/api/v1/continents")
 public class ContinentController {
     private final ContinentService continentService;
 
