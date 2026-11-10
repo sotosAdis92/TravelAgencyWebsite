@@ -18,7 +18,14 @@ public class TripController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TripResponse>> getTripsByCountry(@RequestParam(required = true) String countryName){
+    public ResponseEntity<List<TripResponse>> getTripsByCountry(
+            @RequestParam(required = true) String countryName,
+            @RequestParam(required = false) int costMin,
+            @RequestParam(required = false) int costMax,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) int durationMin,
+            @RequestParam(required = false) int durationMax
+    ){
         List<TripResponse> trips = tripService.getTripsByCountryName(countryName);
         return new ResponseEntity<>(trips, HttpStatus.OK);
     }
