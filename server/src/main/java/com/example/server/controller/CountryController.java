@@ -21,7 +21,7 @@ public class CountryController {
     }
 
     @ApiResponse(responseCode = "200",description = "List of countries by continent with id", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = CountryResponse.class))})
-    @GetMapping("/continent/{continentId}")
+    @GetMapping("/{continentId}")
     public ResponseEntity<List<CountryResponse>> getAllCountriesByContinentId(@PathVariable("continentId") Long continentId){
         List<CountryResponse> countries = countryService.getAllCountriesByContinent(continentId);
         return new ResponseEntity<>(countries, HttpStatus.OK);
