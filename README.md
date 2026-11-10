@@ -45,11 +45,15 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/country/{continentId}  |Get all countries from the continent with id|
 |GET    |/api/v1/trip/{countryId}  |Get all trips from the country with id|
 
-Feautures
----
-- Swagger UI API Documentation
-- Spring Security
-- Rate Limiter 
+### Interactive API Documentation
+Fully integrated **Swagger UI** provides a live, interactive reference for every endpoint — including request payloads, response schemas, status codes, and authentication requirements. Developers can explore and test the API directly from the browser, making integration faster and more transparent.
+ **Access:** `/swagger-ui.html` (or `/swagger-ui/index.html` depending on your Springdoc setup)
+
+### Robust Security with Spring Security
+Built on **Spring Security**, the API enforces authentication and authorization at every layer. It supports secure credential handling, role-based access control, and protection against common vulnerabilities such as CSRF and session fixation — ensuring only authorized users can access protected resources.
+
+### Intelligent Rate Limiting
+A configurable **rate limiter** protects the API from abuse and traffic spikes by controlling how many requests a client can make within a given time window. This safeguards service availability, prevents denial-of-service attempts, and ensures fair resource usage across all consumers.
 
 ---
 # ERD
