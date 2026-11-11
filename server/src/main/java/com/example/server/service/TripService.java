@@ -7,6 +7,6 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface TripService {
-    Page<TripResponse> getTripsByCountryName(String countryName, double costMin, double costMax, String category, double durationMin, double durationMax, Pageable pageable);
+    Page<TripResponse> getTripsByCountryName(String countryName, Double costMin, Double costMax, String category, Double durationMin, Double durationMax, Pageable pageable);
     TripResponse findById(Long Id);
 }

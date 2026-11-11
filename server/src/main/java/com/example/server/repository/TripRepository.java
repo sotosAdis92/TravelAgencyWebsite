@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,6 @@ import java.util.Optional;
 public interface TripRepository extends JpaRepository<Trip, Long> {
     List<Trip> findAllByCountry_Name(String countryName);
     Optional<Trip> findById(Long id);
-    @Query("FROM Trip t WHERE t.country.name = ?1 AND (t.cost > ?2  AND t.cost < ?3) AND (t.duration < ?5 AND t.duration > ?6) AND t.category = ?4")
-    Page<Trip> filterTrips(String countryName, double costMax, double costMin, TripCategory category, double durationMin, double durationMax, Pageable pageable);
+    @Query("SELECT DISTINCT t FROM Trip t  WHERE (?1 IS NULL OR t.country.name = ?1) AND (?2 IS NULL OR t.cost <= ?2) AND (?3 IS NULL OR t.cost >= ?3) AND (?5 IS NULL OR t.duration >= ?5 ) AND (?6 IS NULL OR t.duration < ?6) AND (?4 IS NULL OR t.category = ?4)")
+    Page<Trip> filterTrips(String countryName,Double costMax,Double costMin,TripCategory category,Double durationMin,Double durationMax, Pageable pageable);
 }

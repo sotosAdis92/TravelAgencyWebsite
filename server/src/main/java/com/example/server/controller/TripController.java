@@ -2,6 +2,8 @@ package com.example.server.controller;
 
 import com.example.server.dto.response.TripResponse;
 import com.example.server.service.TripService;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
@@ -19,12 +21,12 @@ public class TripController {
 
     @GetMapping
     public ResponseEntity<Page<TripResponse>> getTripsByCountry(
-            @RequestParam(required = true) String countryName,
-            @RequestParam(required = false, name = "costMin") double costMin,
-            @RequestParam(required = false, name = "costMax") double costMax,
+            @RequestParam(required = false, name = "countryName") String countryName,
+            @RequestParam(required = false, name = "costMin") Double costMin,
+            @RequestParam(required = false, name = "costMax") Double costMax,
             @RequestParam(required = false, name = "category") String category,
-            @RequestParam(required = false, name = "durationMin") double durationMin,
-            @RequestParam(required = false, name = "durationMax") double durationMax,
+            @RequestParam(required = false, name = "durationMin") Double durationMin,
+            @RequestParam(required = false, name = "durationMax") Double durationMax,
             @RequestParam(required = false, name = "pageNo", defaultValue = "1") int pageNo,
             @RequestParam(required = false, name = "pageSize", defaultValue = "10") int pageSize
     ){

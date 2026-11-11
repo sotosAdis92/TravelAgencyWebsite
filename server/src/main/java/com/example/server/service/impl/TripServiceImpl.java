@@ -23,9 +23,9 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
-    public Page<TripResponse> getTripsByCountryName(String countryName, double costMin, double costMax, String category, double durationMin, double durationMax, Pageable pageable) {
-        TripCategory tripCategory = TripCategory.valueOf(category);
-        Page<TripResponse> trips = tripMapper.toDto(tripRepository.filterTrips(countryName, costMin, costMax, tripCategory, durationMin, durationMax, pageable));
+    public Page<TripResponse> getTripsByCountryName(String countryName, Double costMin, Double costMax, String category, Double durationMin, Double durationMax, Pageable pageable) {
+        TripCategory tripCategory = category!=null ? TripCategory.valueOf(category) : null;
+        Page<TripResponse> trips = tripMapper.toDto(tripRepository.filterTrips(countryName, costMax, costMin, tripCategory, durationMin, durationMax, pageable));
         return trips;
     }
 
