@@ -14,6 +14,6 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
     List<Trip> findAllByCountry_Name(String countryName);
     Optional<Trip> findById(Long id);
 
-    @Query("FROM Trip t WHERE (t.cost > ?1  AND t.cost < ?2)")
-    Page<Trip> filterTrips(double costMax, double costMin);
+    @Query("FROM Trip t WHERE t.country.name = ?1 and (t.cost > ?2  AND t.cost < ?3)")
+    Page<Trip> filterTrips(String countryName,double costMax, double costMin);
 }
