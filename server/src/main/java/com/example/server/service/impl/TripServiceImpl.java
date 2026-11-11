@@ -11,8 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
-import java.util.List;
-
 @Service
 public class TripServiceImpl implements TripService {
 
@@ -23,7 +21,6 @@ public class TripServiceImpl implements TripService {
         this.tripMapper = tripMapper;
         this.tripRepository = tripRepository;
     }
-
 
     @Override
     public Page<TripResponse> getTripsByCountryName(String countryName, double costMin, double costMax, String category, double durationMin, double durationMax, Pageable pageable) {
