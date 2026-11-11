@@ -7,6 +7,7 @@ import com.example.server.dto.response.TripPictureResponse;
 import com.example.server.dto.response.TripResponse;
 import com.example.server.entity.*;
 import com.example.server.mapper.TripMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -218,5 +219,10 @@ public class TripMapperImpl implements TripMapper {
     @Override
     public List<TripResponse> toDto(List<Trip> tripList) {
         return tripList.stream().map(this::toDto).toList();
+    }
+
+    @Override
+    public Page<TripResponse> toDto(Page<Trip> trips) {
+        return trips.map(this::toDto);
     }
 }
