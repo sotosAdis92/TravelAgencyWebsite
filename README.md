@@ -43,6 +43,7 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/booking/my-bookings  |Get a users bookings|
 |GET    |/api/v1/continents  |Get all continents from the database|
 |GET    |/api/v1/countries  |Get all countries |
+|GET    |/api/v1/countries/{id}  |Get country with id |
 |GET    |/api/v1/trips  |Get all trips |
 |GET    |/api/v1/trips/{id}  |Get trip with id|
 
