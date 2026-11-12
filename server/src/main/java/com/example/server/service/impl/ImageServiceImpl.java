@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -44,7 +45,7 @@ public class ImageServiceImpl implements ImageService {
     private String tripPicturesBaseUrl;
 
     @Override
-    public String uploadImage(Long id, MultipartFile file, ImageType type) throws IIOException {
+    public String uploadImage(Long id, MultipartFile file, ImageType type) throws IOException {
         String filename = getExtension(file.getOriginalFilename());
         String imageName = id + filename;
         String uploadDir = "";
@@ -73,7 +74,9 @@ public class ImageServiceImpl implements ImageService {
             default -> throw new IllegalArgumentException("Unknown image type: " + type);
         }
         Path uploadPath = Paths.get(uploadDir);
-
+        if(!Files.exists(uploadPath)){
+            Files.createDirectories(uploadPath);
+        }
         return "";
     }
 
