@@ -58,6 +58,9 @@ public class Trip {
     @Column(name = "capacity", nullable = false)
     private int capacity;
 
+    @Column(name = "visa_required", nullable = false)
+    private boolean visaRequired;
+
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Itinerary> itineraries = new ArrayList<>();
 
@@ -73,11 +76,8 @@ public class Trip {
     @Column(name = "updated_at")
     private Instant updated_at;
 
-    public Trip(Long id, Country country, String title, int duration, TripCategory category, int nights,
-                PhysicalConditions physicalCondition, int cost, String description, String imageMap,
-                String imageUrl, int capacity, List<Itinerary> itineraries, List<Departure> departures,
-                List<TripPicture> tripPictures, Instant created_at, Instant updated_at)
-    {
+
+    public Trip(Long id, Country country, String title, int duration, TripCategory category, int nights, PhysicalConditions physicalCondition, int cost, String description, String imageMap, String imageUrl, int capacity, boolean visaRequired, List<Itinerary> itineraries, List<Departure> departures, List<TripPicture> tripPictures, Instant created_at, Instant updated_at) {
         this.id = id;
         this.country = country;
         this.title = title;
@@ -90,6 +90,7 @@ public class Trip {
         this.imageMap = imageMap;
         this.imageUrl = imageUrl;
         this.capacity = capacity;
+        this.visaRequired = visaRequired;
         this.itineraries = itineraries;
         this.departures = departures;
         this.tripPictures = tripPictures;

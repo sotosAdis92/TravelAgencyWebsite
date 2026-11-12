@@ -18,6 +18,7 @@ public record TripResponse(
         String imageMap,
         String imageUrl,
         int capacity,
+        boolean visaRequired,
         List<ItineraryResponse> itineraries,
         List<DepartureResponse> departures,
         List<TripPictureResponse> tripPictures

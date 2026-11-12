@@ -16,6 +16,7 @@ public record TripRequest(
         String imageMap,
         String imageUrl,
         int capacity,
+        boolean visaRequired,
         Long countryId,
         List<ItineraryRequest> itineraries,
         List<DepartureRequest> departures,

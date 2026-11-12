@@ -55,3 +55,8 @@ INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,n
 VALUES (20,'GROUP', 3180, 'Discover the magic of China',14,'/','/',11,'ANY','China Panorama - Chongqing - Zhangjiajie National Forest Park - Water cities',6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 
 */
+
+/*
+INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,nights,physical_condition,title,country_id,created_at,updated_at)
+VALUES (20,'GROUP', 3940, 'Discover the magic of China',16,'/','/',13,'GOOD','Yunan - Sichuan - Tibet - Minorities of Southwestern China',6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+*/
