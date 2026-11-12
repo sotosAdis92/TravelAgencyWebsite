@@ -84,7 +84,14 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public void deleteImage(Long id) throws IOException {
+    public void deleteImage(Long id, ImageType imageType) throws IOException {
+        String uploadDir = switch (imageType){
+            case CONTINENT -> continentUploadDir;
+            case COUNTRY -> countryUploadDir;
+            case TRIP_IMAGE -> tripImageUploadDir;
+            case TRIP_MAP -> tripMapUploadDir;
+            case TRIP_PICTURES -> tripPicturesUploadDir;
+        };
         try(Stream<Path> files = Files.list(Paths.get(uploadDir))){
             files.filter(path -> path.getFileName().toString().startsWith(id + ".")).forEach(path -> {
                 try {
