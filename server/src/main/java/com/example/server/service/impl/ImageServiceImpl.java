@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @Service
 public class ImageServiceImpl implements ImageService {
@@ -42,6 +44,13 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public String uploadImage(Long id, MultipartFile file) throws IIOException {
+        String filename = getExtension(file.getOriginalFilename());
+        String imageName = id + filename;
+        String uploadDir = "";
+        switch (){
+            case ''
+        }
+        Path uploadPath = Paths.get(uploadDir);
         return "";
     }
 
