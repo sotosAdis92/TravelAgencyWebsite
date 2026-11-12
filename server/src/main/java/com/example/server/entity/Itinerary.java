@@ -26,7 +26,7 @@ public class Itinerary {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "picture")
