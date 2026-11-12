@@ -2,11 +2,13 @@ package com.example.server.service.impl;
 
 import com.example.server.service.ImageService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.IIOException;
 import java.io.IOException;
 
+@Service
 public class ImageServiceImpl implements ImageService {
     @Value("")
     private String continentUploadDir;
