@@ -16,6 +16,7 @@ import java.util.Optional;
 public interface TripRepository extends JpaRepository<Trip, Long> {
     List<Trip> findAllByCountry_Name(String countryName);
     Optional<Trip> findById(Long id);
+    //Filter Query for the trips
     @Query("SELECT DISTINCT t FROM Trip t  WHERE (?1 IS NULL OR t.country.name = ?1) AND (?2 IS NULL OR t.cost <= ?2) AND (?3 IS NULL OR t.cost >= ?3) AND (?5 IS NULL OR t.duration >= ?5 ) AND (?6 IS NULL OR t.duration < ?6) AND (?4 IS NULL OR t.category = ?4)")
     Page<Trip> filterTrips(String countryName,Double costMax,Double costMin,TripCategory category,Double durationMin,Double durationMax, Pageable pageable);
 }
