@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.imageio.IIOException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.stream.Stream;
 
 @Service
 public class ImageServiceImpl implements ImageService {
@@ -77,12 +78,22 @@ public class ImageServiceImpl implements ImageService {
         if(!Files.exists(uploadPath)){
             Files.createDirectories(uploadPath);
         }
-        return "";
+        Path filepath = uploadPath.resolve(imageName);
+        Files.copy(file.getInputStream(), filepath, StandardCopyOption.REPLACE_EXISTING);
+        return baseUrl + "/" + imageName;
     }
 
     @Override
     public void deleteImage(Long id) throws IOException {
-
+        try(Stream<Path> files = Files.list(Paths.get(uploadDir))){
+            files.filter(path -> path.getFileName().toString().startsWith(id + ".")).forEach(path -> {
+                try {
+                    Files.deleteIfExists(path);
+                }catch (IOException e){
+                    throw new RuntimeException("Failed to delete the image",e);
+                }
+            });
+        }
     }
 
     private String getExtension(String filename){
