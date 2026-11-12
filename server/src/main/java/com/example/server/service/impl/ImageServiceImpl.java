@@ -1,5 +1,6 @@
 package com.example.server.service.impl;
 
+import com.example.server.enums.ImageType;
 import com.example.server.service.ImageService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -43,14 +44,36 @@ public class ImageServiceImpl implements ImageService {
     private String tripPicturesBaseUrl;
 
     @Override
-    public String uploadImage(Long id, MultipartFile file) throws IIOException {
+    public String uploadImage(Long id, MultipartFile file, ImageType type) throws IIOException {
         String filename = getExtension(file.getOriginalFilename());
         String imageName = id + filename;
         String uploadDir = "";
-        switch (){
-            case ''
+        String baseUrl = "";
+        switch (type){
+            case CONTINENT -> {
+                uploadDir = continentUploadDir;
+                baseUrl = continentBaseUrl;
+            }
+            case COUNTRY -> {
+                uploadDir = countryUploadDir;
+                baseUrl = countryBaseUrl;
+            }
+            case TRIP_MAP -> {
+                uploadDir = tripMapUploadDir;
+                baseUrl = tripMapBaseUrl;
+            }
+            case TRIP_IMAGE -> {
+                uploadDir = tripImageUploadDir;
+                baseUrl = tripImageBaseUrl;
+            }
+            case TRIP_PICTURES -> {
+                uploadDir = tripPicturesUploadDir;
+                baseUrl = tripPicturesBaseUrl;
+            }
+            default -> throw new IllegalArgumentException("Unknown image type: " + type);
         }
         Path uploadPath = Paths.get(uploadDir);
+
         return "";
     }
 
