@@ -46,7 +46,7 @@ public class Trip {
     @Column(name = "cost",nullable = false)
     private int cost;
 
-    @Column(name = "description",nullable = false)
+    @Column(name = "description",nullable = false, columnDefinition = "TEXT")
     private String description;
 
     @Column(name = "map_image", nullable = false)
