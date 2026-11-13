@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ContinentService {
     List<ContinentResponse> getAllContinents();
+    ContinentResponse getContinentById(Long id);
 }

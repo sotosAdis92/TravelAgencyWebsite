@@ -3,6 +3,7 @@ package com.example.server.service.impl;
 import com.example.server.dto.request.ContinentRequest;
 import com.example.server.dto.response.ContinentResponse;
 import com.example.server.entity.Continent;
+import com.example.server.exception.ContinentNotFoundException;
 import com.example.server.mapper.ContinentMapper;
 import com.example.server.repository.ContinentRepository;
 import com.example.server.service.ContinentService;
@@ -24,5 +25,11 @@ public class ContinentServiceImpl implements ContinentService {
     public List<ContinentResponse> getAllContinents() {
         List<ContinentResponse> continents = continentMapper.toDto(continentRepository.findAll());
         return continents;
+    }
+
+    @Override
+    public ContinentResponse getContinentById(Long id) {
+        ContinentResponse continentResponse = continentMapper.toDto(continentRepository.findById(id).orElseThrow(() -> new ContinentNotFoundException("Continent not found")));
+        return continentResponse;
     }
 }

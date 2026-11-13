@@ -22,4 +22,10 @@ public class ContinentController {
         List<ContinentResponse> continents = continentService.getAllContinents();
         return new ResponseEntity<>(continents, HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ContinentResponse> getContinentById(@PathVariable("id") Long id){
+        ContinentResponse continentResponse = continentService.getContinentById(id);
+        return new ResponseEntity<>(continentResponse, HttpStatus.OK);
+    }
 }

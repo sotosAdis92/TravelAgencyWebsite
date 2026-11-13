@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContinentRepository extends JpaRepository<Continent, Long> {
-
+    Continent getById(Long id);
 }
