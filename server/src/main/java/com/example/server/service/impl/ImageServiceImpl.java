@@ -15,34 +15,34 @@ import java.util.stream.Stream;
 
 @Service
 public class ImageServiceImpl implements ImageService {
-    @Value("")
+    @Value("app.image.continent.upload-dir")
     private String continentUploadDir;
 
-    @Value("")
+    @Value("app.image.continent.base-url")
     private String continentBaseUrl;
 
-    @Value("")
+    @Value("app.image.country.upload-dir")
     private String countryUploadDir;
 
-    @Value("")
+    @Value("app.image.country.base-url")
     private String countryBaseUrl;
 
-    @Value("")
+    @Value("app.image.trip.tripimage.upload-dir")
     private String tripImageUploadDir;
 
-    @Value("")
+    @Value("app.image.trip.tripimage.base-url")
     private String tripImageBaseUrl;
 
-    @Value("")
+    @Value("app.image.trip.tripmap.upload-dir")
     private String tripMapUploadDir;
 
-    @Value("")
+    @Value("app.image.trip.tripmap.base-url")
     private String tripMapBaseUrl;
 
-    @Value("")
+    @Value("app.image.trippictures.upload-dir")
     private String tripPicturesUploadDir;
 
-    @Value("")
+    @Value("app.image.trippictures.base-url")
     private String tripPicturesBaseUrl;
 
     @Override
