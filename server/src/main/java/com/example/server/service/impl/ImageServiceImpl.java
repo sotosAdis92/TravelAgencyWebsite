@@ -45,6 +45,18 @@ public class ImageServiceImpl implements ImageService {
     @Value("app.image.trippictures.base-url")
     private String tripPicturesBaseUrl;
 
+    @Value("")
+    private String continentMapUploadDir;
+
+    @Value("")
+    private String continentMapBaseUrl;
+
+    @Value("")
+    private String countryMapUploadDir;
+
+    @Value("")
+    private String countryMapBaseUrl;
+
     @Override
     public String uploadImage(Long id, MultipartFile file, ImageType type) throws IOException {
         String filename = getExtension(file.getOriginalFilename());
@@ -59,6 +71,14 @@ public class ImageServiceImpl implements ImageService {
             case COUNTRY -> {
                 uploadDir = countryUploadDir;
                 baseUrl = countryBaseUrl;
+            }
+            case CONTINENT_MAP -> {
+                uploadDir =continentMapUploadDir;
+                baseUrl = continentMapBaseUrl;
+            }
+            case COUNTRY_MAP -> {
+                uploadDir =countryMapUploadDir;
+                baseUrl=countryMapBaseUrl;
             }
             case TRIP_MAP -> {
                 uploadDir = tripMapUploadDir;
@@ -88,6 +108,8 @@ public class ImageServiceImpl implements ImageService {
         String uploadDir = switch (imageType){
             case CONTINENT -> continentUploadDir;
             case COUNTRY -> countryUploadDir;
+            case CONTINENT_MAP -> continentMapUploadDir;
+            case COUNTRY_MAP -> countryMapUploadDir;
             case TRIP_IMAGE -> tripImageUploadDir;
             case TRIP_MAP -> tripMapUploadDir;
             case TRIP_PICTURES -> tripPicturesUploadDir;
