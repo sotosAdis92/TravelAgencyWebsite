@@ -45,16 +45,16 @@ public class ImageServiceImpl implements ImageService {
     @Value("app.image.trippictures.base-url")
     private String tripPicturesBaseUrl;
 
-    @Value("")
+    @Value("app.image.continent_map.upload-dir")
     private String continentMapUploadDir;
 
-    @Value("")
+    @Value("app.image.continent_map.base-url")
     private String continentMapBaseUrl;
 
-    @Value("")
+    @Value("app.image.country_map.upload-dir")
     private String countryMapUploadDir;
 
-    @Value("")
+    @Value("app.image.country_map.base-url")
     private String countryMapBaseUrl;
 
     @Override
