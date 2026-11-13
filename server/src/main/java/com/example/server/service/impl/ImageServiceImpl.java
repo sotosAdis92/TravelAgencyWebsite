@@ -15,6 +15,7 @@ import java.util.stream.Stream;
 
 @Service
 public class ImageServiceImpl implements ImageService {
+    /*
     @Value("app.image.continent.upload-dir")
     private String continentUploadDir;
 
@@ -131,4 +132,5 @@ public class ImageServiceImpl implements ImageService {
         }
         return filename.substring(filename.lastIndexOf("."));
     }
+     */
 }
