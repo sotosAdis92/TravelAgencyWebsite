@@ -48,6 +48,7 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/trips  |Get all trips |
 |GET    |/api/v1/trips/{id}  |Get trip with id|
 
+
 ### Interactive API Documentation
 Fully integrated **Swagger UI** provides a live, interactive reference for every endpoint — including request payloads, response schemas, status codes, and authentication requirements. Developers can explore and test the API directly from the browser, making integration faster and more transparent.
  **Access:** `/swagger-ui.html` (or `/swagger-ui/index.html` depending on your Springdoc setup)
@@ -59,5 +60,6 @@ Built on **Spring Security**, the API enforces authentication and authorization 
 A configurable **rate limiter** protects the API from abuse and traffic spikes by controlling how many requests a client can make within a given time window. This safeguards service availability, prevents denial-of-service attempts, and ensures fair resource usage across all consumers.
 
 ---
+
 # ERD
 ![alt text](https://github.com/sotosAdis92/TravelAgencyWebsite/blob/main/screenshots/ERDTourismWebAPI.JPG?raw=true)
