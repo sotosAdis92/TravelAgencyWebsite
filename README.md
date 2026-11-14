@@ -24,6 +24,8 @@ To run the project locally, you will need:
 1. `File` → `Open...` → select `server/pom.xml` → **"Open as Project"**
 2. `File` → `Project Structure` → `Project` → set **SDK** to JDK 25 (download via `SDKs` → `+` → `Download JDK` → `25` if needed) and **Language level** to 25.
 
+---
+
 ### Running via Terminal
 
 ```shell
