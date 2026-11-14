@@ -1,4 +1,4 @@
-
+/*
 INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,nights,physical_condition,title,visa_required,country_id,created_at,updated_at)
 VALUES (20,'GROUP', 2495, 'Discover the magic of Brazil',8,'/','/',5,'ANY','Brazi - Rio - Inguazu Waterfalls',FALSE,7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 
@@ -49,3 +49,4 @@ VALUES (20,'GROUP', 3180, 'Discover the magic of China',14,'/','/',11,'ANY','Chi
 
 INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,nights,physical_condition,title,visa_required,country_id,created_at,updated_at)
 VALUES (20,'GROUP', 3940, 'Discover the magic of China',16,'/','/',13,'GOOD','Yunan - Sichuan - Tibet - Minorities of Southwestern China',FALSE,6,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+*/
