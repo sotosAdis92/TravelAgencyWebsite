@@ -1,3 +1,4 @@
+
 /*
 INSERT INTO Continent(name,population,land_area,picture,map,created_at,updated_at);
 VALUES('EUROPE',743478518,10186000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
