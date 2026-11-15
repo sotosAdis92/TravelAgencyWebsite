@@ -1,4 +1,21 @@
 /*
+INSERT INTO Continent(name,population,land_area,picture,map,created_at,updated_at);
+VALUES('EUROPE',743478518,10186000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('ASIA',4873357812,44000001,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('SOUTH_AMERICA',441457405,17840000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('OCEANIA',47306404,9000000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('NORTH_AMERICA_AND_CENTRAL_AMERICA_AND_CARIBBEAN',621780000,24709000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('AFRICA',1393676444,30300000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+VALUES('ANTARCTICA',0,14200000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
+INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
+ */
+/*
 INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,nights,physical_condition,title,visa_required,country_id,created_at,updated_at)
 VALUES (20,'GROUP', 2495, 'Discover the magic of Brazil',8,'/','/',5,'ANY','Brazi - Rio - Inguazu Waterfalls',FALSE,7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 
