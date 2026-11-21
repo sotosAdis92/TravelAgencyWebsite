@@ -15,9 +15,10 @@ INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,upd
 VALUES('ANTARCTICA',0,14200000,'','',CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
 INSERT INTO Continent(name,population,land_area,image_url,map_url,created_at,updated_at);
 */
-
+/*
 INSERT INTO Country(name,population,continent_id,country_picture,country_map,created_at,updated_at);
 VALUES('');
+*/
 /*
 INSERT INTO Trip(capacity,category,cost,description,duration,map_image,picture,nights,physical_condition,title,visa_required,country_id,created_at,updated_at)
 VALUES (20,'GROUP', 2495, 'Discover the magic of Brazil',8,'/','/',5,'ANY','Brazi - Rio - Inguazu Waterfalls',FALSE,7,CURRENT_TIMESTAMP,CURRENT_TIMESTAMP);
