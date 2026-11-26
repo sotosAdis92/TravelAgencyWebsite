@@ -47,7 +47,7 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/continents/{id}  |Get continent based on the id|{""}
 |GET    |/api/v1/countries?continent=  |Get all countries by continent |{""}
 |GET    |/api/v1/countries/{id}  |Get country with id |{""}
-|GET    |/api/v1/trips  |Get all trips |{""}
+|GET    |/api/v1/trips?country=  |Get all trips by country|{""}
 |GET    |/api/v1/trips/{id}  |Get trip with id|{""}
 
 
