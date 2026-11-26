@@ -40,15 +40,15 @@ mvnw.cmd spring-boot:run
 |POST    |/api/v1/register  |Register a new user into the database|{"username":,"password":}
 |POST    |/api/v1/login  |Login into account and start session|{"username":,"password":}
 |POST    |/api/v1/logout  |Stop session and destroy session data|{""}
-|POST    |/api/v1/booking  |Create a new booking|
-|DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|
-|GET    |/api/v1/booking/my-bookings  |Get a users bookings|
-|GET    |/api/v1/continents  |Get all continents from the database|
-|GET    |/api/v1/continents/{id}  |Get continent based on the id|
-|GET    |/api/v1/countries  |Get all countries |
-|GET    |/api/v1/countries/{id}  |Get country with id |
-|GET    |/api/v1/trips  |Get all trips |
-|GET    |/api/v1/trips/{id}  |Get trip with id|
+|POST    |/api/v1/booking  |Create a new booking|{"tripId":,"userId":,"bookedAt":}
+|DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|{""}
+|GET    |/api/v1/booking/my-bookings  |Get a users bookings|{""}
+|GET    |/api/v1/continents  |Get all continents from the database|{""}
+|GET    |/api/v1/continents/{id}  |Get continent based on the id|{""}
+|GET    |/api/v1/countries  |Get all countries |{""}
+|GET    |/api/v1/countries/{id}  |Get country with id |{""}
+|GET    |/api/v1/trips  |Get all trips |{""}
+|GET    |/api/v1/trips/{id}  |Get trip with id|{""}
 
 
 
