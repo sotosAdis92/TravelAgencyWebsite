@@ -39,7 +39,7 @@ mvnw.cmd spring-boot:run
 |--------|-----|-------------|-------|
 |POST    |/api/v1/register  |Register a new user into the database|{"username":,"password":}
 |POST    |/api/v1/login  |Login into account and start session|{"username":,"password":}
-|POST    |/api/v1/logout  |Stop session and destroy session data|{}
+|POST    |/api/v1/logout  |Stop session and destroy session data|{""}
 |POST    |/api/v1/booking  |Create a new booking|
 |DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|
 |GET    |/api/v1/booking/my-bookings  |Get a users bookings|
