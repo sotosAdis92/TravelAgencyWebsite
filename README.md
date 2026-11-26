@@ -13,7 +13,6 @@ To run the project locally, you will need:
 - Java JDK 25
 - Spring Boot 4.1.2
 - PostgreSQL 17.10
-- Node.js v22.10
 
 ## Running the Backend
 
