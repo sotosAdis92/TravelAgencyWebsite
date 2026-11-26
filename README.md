@@ -35,11 +35,11 @@ mvnw.cmd spring-boot:run
 
 # API Endpoints
 
-| Method | URL | Description |
-|--------|-----|-------------|
-|POST    |/api/v1/register  |Register a new user into the database|
-|POST    |/api/v1/login  |Login into account and start session|
-|POST    |/api/v1/logout  |Stop session and destroy session data|
+| Method | URL | Description |Payload|
+|--------|-----|-------------|-------|
+|POST    |/api/v1/register  |Register a new user into the database|{"username":,"password":}
+|POST    |/api/v1/login  |Login into account and start session|{"username":,"password":}
+|POST    |/api/v1/logout  |Stop session and destroy session data|{}
 |POST    |/api/v1/booking  |Create a new booking|
 |DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|
 |GET    |/api/v1/booking/my-bookings  |Get a users bookings|
@@ -49,6 +49,8 @@ mvnw.cmd spring-boot:run
 |GET    |/api/v1/countries/{id}  |Get country with id |
 |GET    |/api/v1/trips  |Get all trips |
 |GET    |/api/v1/trips/{id}  |Get trip with id|
+
+
 
 
 ### Interactive API Documentation
