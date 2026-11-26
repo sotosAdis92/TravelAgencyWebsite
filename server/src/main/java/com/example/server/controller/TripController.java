@@ -22,7 +22,7 @@ public class TripController {
 
     @GetMapping
     public ResponseEntity<Page<TripResponse>> getTripsByCountry(
-            @RequestParam(required = false, name = "countryName") String countryName,
+            @RequestParam(required = true, name = "countryName") String countryName,
             @RequestParam(required = false, name = "costMin") Double costMin,
             @RequestParam(required = false, name = "costMax") Double costMax,
             @RequestParam(required = false, name = "category") String category,
