@@ -4,7 +4,7 @@ A backend web application for a travel agency (Ταξιδιωτικό Πρακτ
 
 ## Project Idea and Inspiration
 
-The goal of this project was to build a simple API while learning user authentication through Spring Boot's JDBC session management and user details. As someone who loves travelling and geography, I chose to build a travel app instead of a geography quiz app. Inspired by popular travel websites and apps, I wanted to see what I could create while trying out new technologies and getting a better grasp of the Spring Boot framework and PostgreSQL database management.
+The goal of this project was to build a simple API while learning user authentication through Spring Boot's JDBC session management and user details. As someone who loves travelling and geography, I chose to build a travel app instead of a geography quiz app. Inspired by popular travel websites and apps, I wanted to see what I could create while trying out new technologies and getting a better grasp of the Spring Boot framework and PostgreSQL database management. The core idea behind the API design was that a user should get the countries based on a continent they choose, then after seeing where the travel agency has travel plans to, choose a trip based on that country. Future addition could be a Client UI.
 
 ## Prerequisites
 
@@ -13,7 +13,6 @@ To run the project locally, you will need:
 - Java JDK 25
 - Spring Boot 4.1.2
 - PostgreSQL 17.10
-- Node.js v22.10
 
 ## Running the Backend
 
@@ -35,20 +34,20 @@ mvnw.cmd spring-boot:run
 
 # API Endpoints
 
-| Method | URL | Description |Payload|
-|--------|-----|-------------|-------|
-|POST    |/api/v1/register  |Register a new user into the database|{"username":,"password":}
-|POST    |/api/v1/login  |Login into account and start session|{"username":,"password":}
-|POST    |/api/v1/logout  |Stop session and destroy session data|{""}
-|POST    |/api/v1/booking  |Create a new booking|{"tripId":,"userId":,"bookedAt":}
-|DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking|{""}
-|GET    |/api/v1/booking/my-bookings  |Get a users bookings|{""}
-|GET    |/api/v1/continents  |Get all continents from the database|{""}
-|GET    |/api/v1/continents/{id}  |Get continent based on the id|{""}
-|GET    |/api/v1/countries?continent=  |Get all countries by continent |{""}
-|GET    |/api/v1/countries/{id}  |Get country with id |{""}
-|GET    |/api/v1/trips?country=  |Get all trips by country|{""}
-|GET    |/api/v1/trips/{id}  |Get trip with id|{""}
+| Method | URL | Description |Request Parameters|Payload|
+|--------|-----|-------------|------------------|-------|
+|POST    |/api/v1/register  |Register a new user into the database| - |{"username":,"password":}
+|POST    |/api/v1/login  |Login into account and start session| - |{"username":,"password":}
+|POST    |/api/v1/logout  |Stop session and destroy session data| - |{""}
+|POST    |/api/v1/booking  |Create a new booking| - |{"tripId":,"userId":,"bookedAt":}
+|DELETE    |/api/v1/booking/my-bookings/{id}  |Delete a users booking| - |{""}
+|GET    |/api/v1/booking/my-bookings  |Get a users bookings| - |{""}
+|GET    |/api/v1/continents  |Get all continents from the database| - |{""}
+|GET    |/api/v1/continents/{id}  |Get continent based on the id| - |{""}
+|GET    |/api/v1/countries  |Get all countries by continent |continentName (required)|{""}
+|GET    |/api/v1/countries/{id}  |Get country with id | - |{""}
+|GET    |/api/v1/trips |Get all trips by country| countryName (required), costMin, costMax, category, durationMin, durationMax, pageNo, pageSize|{""}
+|GET    |/api/v1/trips/{id}  |Get trip with id| - |{""}
 
 
 
