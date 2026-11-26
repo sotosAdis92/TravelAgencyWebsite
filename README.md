@@ -4,7 +4,7 @@ A backend web application for a travel agency (Ταξιδιωτικό Πρακτ
 
 ## Project Idea and Inspiration
 
-The goal of this project was to build a simple API while learning user authentication through Spring Boot's JDBC session management and user details. As someone who loves travelling and geography, I chose to build a travel app instead of a geography quiz app. Inspired by popular travel websites and apps, I wanted to see what I could create while trying out new technologies and getting a better grasp of the Spring Boot framework and PostgreSQL database management.
+The goal of this project was to build a simple API while learning user authentication through Spring Boot's JDBC session management and user details. As someone who loves travelling and geography, I chose to build a travel app instead of a geography quiz app. Inspired by popular travel websites and apps, I wanted to see what I could create while trying out new technologies and getting a better grasp of the Spring Boot framework and PostgreSQL database management. The core idea behind the API design was that a user should get the countries based on a continent they choose, then after seeing where the travel agency has travel plans to, choose a trip based on that country. Future addition could be a Client UI.
 
 ## Prerequisites
 
